@@ -4,6 +4,7 @@
  */
 package Duel;
 
+import java.awt.Dimension;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.net.URL;
@@ -21,6 +22,14 @@ public class ChoosePokemon extends javax.swing.JFrame {
      */
     public ChoosePokemon() {
         initComponents();
+        Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+        this.setLocation(dim.width / 2 - this.getSize().width / 2, dim.height / 2 - this.getSize().height / 2);
+        
+        URL url = this.getClass().getResource("/Images/pokeduel.png");
+        Image imgTitulo = Toolkit.getDefaultToolkit().getImage(url);
+        setIconImage(imgTitulo);
+        
+        setResizable(false);
     }
 
     /**
@@ -41,6 +50,7 @@ public class ChoosePokemon extends javax.swing.JFrame {
         LblPokemonChoosed = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         LblAbility = new javax.swing.JLabel();
+        SelectionBar = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -58,7 +68,7 @@ public class ChoosePokemon extends javax.swing.JFrame {
                 jLabel1MouseClicked(evt);
             }
         });
-        Background.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(46, 429, -1, -1));
+        Background.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 450, -1, -1));
 
         jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\Leonardo\\Documents\\Java\\PokeDuel\\src\\main\\resources\\Images\\ElectivirePokeBall.png")); // NOI18N
         jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -66,7 +76,7 @@ public class ChoosePokemon extends javax.swing.JFrame {
                 jLabel2MouseClicked(evt);
             }
         });
-        Background.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 430, -1, -1));
+        Background.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 450, -1, -1));
 
         jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Users\\Leonardo\\Documents\\Java\\PokeDuel\\src\\main\\resources\\Images\\RayquazaPokeBall.png")); // NOI18N
         jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -74,7 +84,7 @@ public class ChoosePokemon extends javax.swing.JFrame {
                 jLabel3MouseClicked(evt);
             }
         });
-        Background.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(456, 429, -1, -1));
+        Background.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 450, -1, -1));
 
         jLabel4.setIcon(new javax.swing.ImageIcon("C:\\Users\\Leonardo\\Documents\\Java\\PokeDuel\\src\\main\\resources\\Images\\ArceusPokeBall.png")); // NOI18N
         jLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -82,7 +92,7 @@ public class ChoosePokemon extends javax.swing.JFrame {
                 jLabel4MouseClicked(evt);
             }
         });
-        Background.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(657, 429, -1, -1));
+        Background.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 450, -1, -1));
 
         jLabel5.setIcon(new javax.swing.ImageIcon("C:\\Users\\Leonardo\\Documents\\Java\\PokeDuel\\src\\main\\resources\\Images\\GiratinaPokeBall.png")); // NOI18N
         jLabel5.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -95,7 +105,7 @@ public class ChoosePokemon extends javax.swing.JFrame {
                 jLabel5KeyPressed(evt);
             }
         });
-        Background.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 429, -1, -1));
+        Background.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 450, -1, -1));
 
         LblPokemonChoosed.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         LblPokemonChoosed.setIcon(new javax.swing.ImageIcon("C:\\Users\\Leonardo\\Documents\\Java\\PokeDuel\\src\\main\\resources\\Images\\Giratina.png")); // NOI18N
@@ -109,6 +119,10 @@ public class ChoosePokemon extends javax.swing.JFrame {
         LblAbility.setText("Ability");
         LblAbility.setOpaque(true);
         Background.add(LblAbility, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 360, 330, 40));
+
+        SelectionBar.setIcon(new javax.swing.ImageIcon("C:\\Users\\Leonardo\\Documents\\Java\\PokeDuel\\src\\main\\resources\\Images\\menuBar.png")); // NOI18N
+        SelectionBar.setText("jLabel8");
+        Background.add(SelectionBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 420, -1, -1));
 
         jButton1.setBackground(new java.awt.Color(0, 0, 102));
         jButton1.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
@@ -139,7 +153,7 @@ public class ChoosePokemon extends javax.swing.JFrame {
 
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setIcon(new javax.swing.ImageIcon("C:\\Users\\Leonardo\\Documents\\Java\\PokeDuel\\src\\main\\resources\\Images\\Wallpaper.jpg")); // NOI18N
-        Background.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1040, 630));
+        Background.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1040, 420));
 
         getContentPane().add(Background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1040, 630));
 
@@ -158,7 +172,6 @@ public class ChoosePokemon extends javax.swing.JFrame {
     private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
         ImageIcon icon = new ImageIcon("C:/Users/Leonardo/Documents/Java/PokeDuel/src/main/resources/Images/Rayquaza.png");
         LblPokemonChoosed.setIcon(icon);
-        
     }//GEN-LAST:event_jLabel3MouseClicked
 
     private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
@@ -216,6 +229,7 @@ public class ChoosePokemon extends javax.swing.JFrame {
     private javax.swing.JPanel Background;
     private javax.swing.JLabel LblAbility;
     private javax.swing.JLabel LblPokemonChoosed;
+    private javax.swing.JLabel SelectionBar;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
