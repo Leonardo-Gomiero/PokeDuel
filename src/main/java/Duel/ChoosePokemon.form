@@ -209,26 +209,43 @@
           </AuxValues>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="600" y="100" width="310" height="120"/>
+              <AbsoluteConstraints x="730" y="60" width="260" height="190"/>
             </Constraint>
           </Constraints>
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
           <SubComponents>
-            <Component class="javax.swing.JTable" name="jTable1">
+            <Component class="javax.swing.JTable" name="TableStats">
               <Properties>
                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                  <Table columnCount="1" rowCount="4">
-                    <Column editable="true" title="Moves" type="java.lang.Object">
-                      <Data value="Move 1"/>
-                      <Data value="Move 2"/>
-                      <Data value="Move 3"/>
-                      <Data value="Move 4"/>
+                  <Table columnCount="2" rowCount="7">
+                    <Column editable="true" title="Stats" type="java.lang.Object">
+                      <Data value="HP"/>
+                      <Data value="Attack"/>
+                      <Data value="Defense"/>
+                      <Data value="Sp. Atk"/>
+                      <Data value="Sp. Def"/>
+                      <Data value="Speed"/>
+                      <Data value="Total"/>
+                    </Column>
+                    <Column editable="true" title="Value" type="java.lang.Object">
+                      <Data value="0"/>
+                      <Data value="0"/>
+                      <Data value="0"/>
+                      <Data value="0"/>
+                      <Data value="0"/>
+                      <Data value="0"/>
+                      <Data value="0"/>
                     </Column>
                   </Table>
                 </Property>
                 <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
                   <TableColumnModel selectionModel="0">
+                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                      <Title/>
+                      <Editor/>
+                      <Renderer/>
+                    </Column>
                     <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
                       <Title/>
                       <Editor/>

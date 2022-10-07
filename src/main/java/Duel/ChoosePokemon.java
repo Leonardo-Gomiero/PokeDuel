@@ -54,7 +54,7 @@ public class ChoosePokemon extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        TableStats = new javax.swing.JTable();
         jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -136,20 +136,23 @@ public class ChoosePokemon extends javax.swing.JFrame {
         jButton2.setText("GHOST");
         Background.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 290, 190, 50));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        TableStats.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {"Move 1"},
-                {"Move 2"},
-                {"Move 3"},
-                {"Move 4"}
+                {"HP", "0"},
+                {"Attack", "0"},
+                {"Defense", "0"},
+                {"Sp. Atk", "0"},
+                {"Sp. Def", "0"},
+                {"Speed", "0"},
+                {"Total", "0"}
             },
             new String [] {
-                "Moves"
+                "Stats", "Value"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(TableStats);
 
-        Background.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 100, 310, 120));
+        Background.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 60, 260, 190));
 
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setIcon(new javax.swing.ImageIcon("C:\\Users\\Leonardo\\Documents\\Java\\PokeDuel\\src\\main\\resources\\Images\\Wallpaper.jpg")); // NOI18N
@@ -230,6 +233,7 @@ public class ChoosePokemon extends javax.swing.JFrame {
     private javax.swing.JLabel LblAbility;
     private javax.swing.JLabel LblPokemonChoosed;
     private javax.swing.JLabel SelectionBar;
+    private javax.swing.JTable TableStats;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
@@ -240,6 +244,5 @@ public class ChoosePokemon extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 }
