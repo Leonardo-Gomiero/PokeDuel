@@ -30,6 +30,7 @@ public class ChoosePokemon extends javax.swing.JFrame {
         setIconImage(imgTitulo);
         
         setResizable(false);
+        BtnPlay.setEnabled(false);
     }
 
     /**
@@ -50,6 +51,7 @@ public class ChoosePokemon extends javax.swing.JFrame {
         LblPokemonChoosed = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         LblAbility = new javax.swing.JLabel();
+        BtnPlay = new javax.swing.JButton();
         SelectionBar = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
@@ -120,9 +122,19 @@ public class ChoosePokemon extends javax.swing.JFrame {
         LblAbility.setOpaque(true);
         Background.add(LblAbility, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 360, 330, 40));
 
+        BtnPlay.setBackground(new java.awt.Color(51, 255, 51));
+        BtnPlay.setFont(new java.awt.Font("Yu Gothic Medium", 3, 18)); // NOI18N
+        BtnPlay.setForeground(new java.awt.Color(0, 0, 0));
+        BtnPlay.setText("PLAY");
+        BtnPlay.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnPlayActionPerformed(evt);
+            }
+        });
+        Background.add(BtnPlay, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 650, 140, 50));
+
         SelectionBar.setIcon(new javax.swing.ImageIcon("C:\\Users\\Leonardo\\Documents\\Java\\PokeDuel\\src\\main\\resources\\Images\\menuBar.png")); // NOI18N
-        SelectionBar.setText("jLabel8");
-        Background.add(SelectionBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 420, -1, -1));
+        Background.add(SelectionBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 420, 1040, 310));
 
         jButton1.setBackground(new java.awt.Color(0, 0, 102));
         jButton1.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
@@ -138,13 +150,12 @@ public class ChoosePokemon extends javax.swing.JFrame {
 
         TableStats.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {"HP", "0"},
-                {"Attack", "0"},
-                {"Defense", "0"},
-                {"Sp. Atk", "0"},
-                {"Sp. Def", "0"},
-                {"Speed", "0"},
-                {"Total", "0"}
+                {"HP", "150"},
+                {"Attack", "120"},
+                {"Defense", "100"},
+                {"Sp. Atk", "120"},
+                {"Sp. Def", "100"},
+                {"Speed", "90"}
             },
             new String [] {
                 "Stats", "Value"
@@ -158,7 +169,7 @@ public class ChoosePokemon extends javax.swing.JFrame {
         jLabel6.setIcon(new javax.swing.ImageIcon("C:\\Users\\Leonardo\\Documents\\Java\\PokeDuel\\src\\main\\resources\\Images\\Wallpaper.jpg")); // NOI18N
         Background.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1040, 420));
 
-        getContentPane().add(Background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1040, 630));
+        getContentPane().add(Background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1040, 720));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -180,6 +191,7 @@ public class ChoosePokemon extends javax.swing.JFrame {
     private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
         ImageIcon icon = new ImageIcon("C:/Users/Leonardo/Documents/Java/PokeDuel/src/main/resources/Images/Giratina.png");
         LblPokemonChoosed.setIcon(icon);
+        BtnPlay.setEnabled(true);
     }//GEN-LAST:event_jLabel5MouseClicked
 
     private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
@@ -192,6 +204,10 @@ public class ChoosePokemon extends javax.swing.JFrame {
         
         LblPokemonChoosed.setIcon(icon);
     }//GEN-LAST:event_jLabel2MouseClicked
+
+    private void BtnPlayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnPlayActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BtnPlayActionPerformed
 
     /**
      * @param args the command line arguments
@@ -230,6 +246,7 @@ public class ChoosePokemon extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Background;
+    private javax.swing.JButton BtnPlay;
     private javax.swing.JLabel LblAbility;
     private javax.swing.JLabel LblPokemonChoosed;
     private javax.swing.JLabel SelectionBar;
