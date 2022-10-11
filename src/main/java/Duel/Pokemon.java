@@ -4,6 +4,8 @@
  */
 package Duel;
 
+import javax.swing.ImageIcon;
+
 /**
  *
  * @author Leonardo
@@ -17,6 +19,9 @@ public class Pokemon {
     int spAtk;
     int spDef;
     int speed;
+    ImageIcon icon;
+
+    
 
     public Pokemon(String name, String ability, int hp, int attack, int defense, int spAtk, int spDef, int speed) {
         this.name = name;
@@ -106,6 +111,12 @@ public class Pokemon {
         this.speed = speed;
     }
     
-    
+    public ImageIcon getIcon() {
+        return icon;
+    }
+
+    public void setIcon(ImageIcon icon) {
+        this.icon = icon;
+    }
     
 }

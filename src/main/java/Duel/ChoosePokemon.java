@@ -28,6 +28,8 @@ public class ChoosePokemon extends javax.swing.JFrame {
     Color normalText = new Color(204,204,204);
     Color white =  new Color(255, 255, 255);
     
+    Pokemon pokemon;
+    ImageIcon icon;
     
     public ChoosePokemon() {
         initComponents();
@@ -65,6 +67,7 @@ public class ChoosePokemon extends javax.swing.JFrame {
     private void initComponents() {
 
         Background = new javax.swing.JPanel();
+        LblPokedex = new javax.swing.JLabel();
         LblName = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -86,6 +89,12 @@ public class ChoosePokemon extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         Background.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        LblPokedex.setFont(new java.awt.Font("Segoe UI", 3, 48)); // NOI18N
+        LblPokedex.setForeground(new java.awt.Color(255, 255, 255));
+        LblPokedex.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        LblPokedex.setText("000");
+        Background.add(LblPokedex, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 30, 200, -1));
 
         LblName.setFont(new java.awt.Font("Segoe UI", 3, 48)); // NOI18N
         LblName.setForeground(new java.awt.Color(255, 255, 255));
@@ -157,6 +166,11 @@ public class ChoosePokemon extends javax.swing.JFrame {
         BtnPlay.setFont(new java.awt.Font("Yu Gothic Medium", 3, 18)); // NOI18N
         BtnPlay.setForeground(new java.awt.Color(0, 0, 0));
         BtnPlay.setText("PLAY");
+        BtnPlay.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                BtnPlayMouseClicked(evt);
+            }
+        });
         BtnPlay.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnPlayActionPerformed(evt);
@@ -202,7 +216,7 @@ public class ChoosePokemon extends javax.swing.JFrame {
         TableStats.setFocusable(false);
         jScrollPane1.setViewportView(TableStats);
 
-        Background.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 50, 200, 170));
+        Background.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 100, 200, 170));
 
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setIcon(new javax.swing.ImageIcon("C:\\Users\\Leonardo\\Documents\\Java\\PokeDuel\\src\\main\\resources\\Images\\Wallpaper.jpg")); // NOI18N
@@ -214,7 +228,7 @@ public class ChoosePokemon extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
-        ImageIcon icon = new ImageIcon("C:/Users/Leonardo/Documents/Java/PokeDuel/src/main/resources/Images/Reshiram.png");
+        icon = new ImageIcon("C:/Users/Leonardo/Documents/Java/PokeDuel/src/main/resources/Images/Reshiram.png");
         LblPokemonChoosed.setIcon(icon);
         Pokemon pokemon = Connect.Pokemon(643);
         loadStats(pokemon);
@@ -226,7 +240,7 @@ public class ChoosePokemon extends javax.swing.JFrame {
         Type2.setBackground(dragon);
         Type2.setText("DRAGON");
         
-        
+        LblPokedex.setText("643");
         LblName.setText(pokemon.getName());
     }//GEN-LAST:event_jLabel1MouseClicked
 
@@ -235,9 +249,9 @@ public class ChoosePokemon extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel5KeyPressed
 
     private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
-        ImageIcon icon = new ImageIcon("C:/Users/Leonardo/Documents/Java/PokeDuel/src/main/resources/Images/Rayquaza.png");
+        icon = new ImageIcon("C:/Users/Leonardo/Documents/Java/PokeDuel/src/main/resources/Images/Rayquaza.png");
         LblPokemonChoosed.setIcon(icon);
-        Pokemon pokemon = Connect.Pokemon(384);
+        pokemon = Connect.Pokemon(384);
         loadStats(pokemon);
         BtnPlay.setEnabled(true);
         
@@ -249,13 +263,14 @@ public class ChoosePokemon extends javax.swing.JFrame {
         Type2.setBackground(dragon);
         Type2.setText("DRAGON");
         
+        LblPokedex.setText("384");
         LblName.setText(pokemon.getName());
     }//GEN-LAST:event_jLabel3MouseClicked
 
     private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
-        ImageIcon icon = new ImageIcon("C:/Users/Leonardo/Documents/Java/PokeDuel/src/main/resources/Images/Giratina.png");
+        icon = new ImageIcon("C:/Users/Leonardo/Documents/Java/PokeDuel/src/main/resources/Images/Giratina.png");
         LblPokemonChoosed.setIcon(icon);
-        Pokemon pokemon = Connect.Pokemon(487);
+        pokemon = Connect.Pokemon(487);
         loadStats(pokemon);
         BtnPlay.setEnabled(true);
         
@@ -267,13 +282,14 @@ public class ChoosePokemon extends javax.swing.JFrame {
         Type2.setText("DRAGON");
         
         
+        LblPokedex.setText("487");
         LblName.setText(pokemon.getName());
     }//GEN-LAST:event_jLabel5MouseClicked
 
     private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
-        ImageIcon icon = new ImageIcon("C:/Users/Leonardo/Documents/Java/PokeDuel/src/main/resources/Images/Arceus.png");
+        icon = new ImageIcon("C:/Users/Leonardo/Documents/Java/PokeDuel/src/main/resources/Images/Arceus.png");
         LblPokemonChoosed.setIcon(icon);
-        Pokemon pokemon = Connect.Pokemon(493);
+        pokemon = Connect.Pokemon(493);
         loadStats(pokemon);
         BtnPlay.setEnabled(true);
         
@@ -282,13 +298,14 @@ public class ChoosePokemon extends javax.swing.JFrame {
         
         Type2.setVisible(false);
         
+        LblPokedex.setText("493");
         LblName.setText(pokemon.getName());
     }//GEN-LAST:event_jLabel4MouseClicked
 
     private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
-        ImageIcon icon = new ImageIcon("C:/Users/Leonardo/Documents/Java/PokeDuel/src/main/resources/Images/Electivire.png");
+        icon = new ImageIcon("C:/Users/Leonardo/Documents/Java/PokeDuel/src/main/resources/Images/Electivire.png");
         LblPokemonChoosed.setIcon(icon);
-        Pokemon pokemon = Connect.Pokemon(466);
+        pokemon = Connect.Pokemon(466);
         loadStats(pokemon);
         BtnPlay.setEnabled(true);
         
@@ -298,14 +315,45 @@ public class ChoosePokemon extends javax.swing.JFrame {
         
         Type2.setVisible(false);
         
+        LblPokedex.setText("466");
         LblName.setText(pokemon.getName());
     }//GEN-LAST:event_jLabel2MouseClicked
 
+    private Pokemon randomizeFoe(){
+        int[] foes = {466, 487, 384, 493, 643};
+        
+        int index = (int) (Math.random() * (5 - 1 + 1) + 1);
+        
+        Pokemon foe = Connect.Pokemon(foes[index - 1]);
+        
+        return foe;
+        
+    }
+    
+   
+    
+    
     private void BtnPlayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnPlayActionPerformed
         // TODO add your handling code here:
-        
-        
+
     }//GEN-LAST:event_BtnPlayActionPerformed
+
+    private void BtnPlayMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnPlayMouseClicked
+        // TODO add your handling code here:
+        Battle battleForm = new Battle();
+        
+        battleForm.playerPokemon = this.pokemon;
+        
+        battleForm.foePokemon = randomizeFoe();
+        
+        ImageIcon foeIcon = new ImageIcon("C:/Users/Leonardo/Documents/Java/PokeDuel/src/main/resources/Images/" + battleForm.foePokemon.getName() + ".png");
+        
+        battleForm.PokemonFoe.setIcon(foeIcon);
+        
+        battleForm.setVisible(true);
+        
+        dispose();
+    }//GEN-LAST:event_BtnPlayMouseClicked
 
     /**
      * @param args the command line arguments
@@ -347,6 +395,7 @@ public class ChoosePokemon extends javax.swing.JFrame {
     private javax.swing.JButton BtnPlay;
     private javax.swing.JLabel LblAbility;
     private javax.swing.JLabel LblName;
+    private javax.swing.JLabel LblPokedex;
     private javax.swing.JLabel LblPokemonChoosed;
     private javax.swing.JLabel SelectionBar;
     private javax.swing.JTable TableStats;

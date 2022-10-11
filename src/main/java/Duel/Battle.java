@@ -19,9 +19,13 @@ import java.util.logging.Logger;
  */
 public class Battle extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Battle
-     */
+    Pokemon playerPokemon;
+    
+    Pokemon foePokemon;
+    
+    
+
+    
     public Battle() {
         initComponents();
         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
@@ -44,6 +48,8 @@ public class Battle extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        FoeHP = new javax.swing.JProgressBar();
+        YourHP = new javax.swing.JProgressBar();
         PokemonFoe = new javax.swing.JLabel();
         PokemonChoosed = new javax.swing.JLabel();
         PlayerHP = new javax.swing.JLabel();
@@ -52,8 +58,6 @@ public class Battle extends javax.swing.JFrame {
         BtnMove2 = new javax.swing.JButton();
         BtnMove3 = new javax.swing.JButton();
         BtnMove4 = new javax.swing.JButton();
-        FoeHP = new javax.swing.JProgressBar();
-        YourHP = new javax.swing.JProgressBar();
         Background = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
 
@@ -64,6 +68,18 @@ public class Battle extends javax.swing.JFrame {
             }
         });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        FoeHP.setBackground(new java.awt.Color(102, 255, 102));
+        FoeHP.setForeground(new java.awt.Color(102, 255, 102));
+        FoeHP.setMaximum(150);
+        FoeHP.setValue(150);
+        getContentPane().add(FoeHP, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 90, 400, 20));
+
+        YourHP.setBackground(new java.awt.Color(102, 255, 102));
+        YourHP.setForeground(new java.awt.Color(102, 255, 102));
+        YourHP.setMaximum(150);
+        YourHP.setValue(150);
+        getContentPane().add(YourHP, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 390, 400, 20));
 
         PokemonFoe.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         PokemonFoe.setIcon(new javax.swing.ImageIcon("C:\\Users\\Leonardo\\Documents\\Java\\PokeDuel\\src\\main\\resources\\Images\\Giratina.png")); // NOI18N
@@ -113,18 +129,6 @@ public class Battle extends javax.swing.JFrame {
         BtnMove4.setForeground(new java.awt.Color(255, 255, 255));
         BtnMove4.setText("Earth Power");
         getContentPane().add(BtnMove4, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 540, 230, 80));
-
-        FoeHP.setBackground(new java.awt.Color(102, 255, 102));
-        FoeHP.setForeground(new java.awt.Color(102, 255, 102));
-        FoeHP.setMaximum(150);
-        FoeHP.setValue(150);
-        getContentPane().add(FoeHP, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 90, 400, 20));
-
-        YourHP.setBackground(new java.awt.Color(102, 255, 102));
-        YourHP.setForeground(new java.awt.Color(102, 255, 102));
-        YourHP.setMaximum(150);
-        YourHP.setValue(150);
-        getContentPane().add(YourHP, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 390, 400, 20));
 
         Background.setForeground(new java.awt.Color(218, 188, 104));
         Background.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -215,6 +219,11 @@ public class Battle extends javax.swing.JFrame {
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
         // TODO add your handling code here:
         FoeHP.setForeground(Color.green);
+        
+        //Set foe HP bar:
+        LblFoeHP.setText(String.valueOf(foePokemon.getHp()) + "/" + String.valueOf(foePokemon.getHp()));
+        FoeHP.setMaximum(foePokemon.getHp());
+        
     }//GEN-LAST:event_formWindowActivated
 
     /**
@@ -259,10 +268,10 @@ public class Battle extends javax.swing.JFrame {
     private javax.swing.JButton BtnMove3;
     private javax.swing.JButton BtnMove4;
     private javax.swing.JProgressBar FoeHP;
-    private javax.swing.JLabel LblFoeHP;
+    public static javax.swing.JLabel LblFoeHP;
     private javax.swing.JLabel PlayerHP;
     private javax.swing.JLabel PokemonChoosed;
-    private javax.swing.JLabel PokemonFoe;
+    public javax.swing.JLabel PokemonFoe;
     private javax.swing.JProgressBar YourHP;
     private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables
