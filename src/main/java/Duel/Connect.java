@@ -23,7 +23,7 @@ public class Connect {
 
     }
 
-    public static void Pokemon(int num) {
+    public static Pokemon Pokemon(int num) {
 
         String name = getName(num);
         String ability = getAbility(num);
@@ -37,6 +37,8 @@ public class Connect {
         Pokemon pokemon = new Pokemon(name, ability, hp, attack, defense, spAtk, spDef, speed);
         
         pokemon.showInfo();
+        
+        return pokemon;
 
     }
 
