@@ -26,13 +26,13 @@ public class Battle extends javax.swing.JFrame {
         initComponents();
         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
         this.setLocation(dim.width / 2 - this.getSize().width / 2, dim.height / 2 - this.getSize().height / 2);
-        
+
         URL url = this.getClass().getResource("/Images/pokeduel.png");
         Image imgTitulo = Toolkit.getDefaultToolkit().getImage(url);
         setIconImage(imgTitulo);
-        
+
         setResizable(false);
-        
+
     }
 
     /**
@@ -114,11 +114,13 @@ public class Battle extends javax.swing.JFrame {
         BtnMove4.setText("Earth Power");
         getContentPane().add(BtnMove4, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 540, 230, 80));
 
+        FoeHP.setBackground(new java.awt.Color(102, 255, 102));
         FoeHP.setForeground(new java.awt.Color(102, 255, 102));
         FoeHP.setMaximum(150);
         FoeHP.setValue(150);
         getContentPane().add(FoeHP, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 90, 400, 20));
 
+        YourHP.setBackground(new java.awt.Color(102, 255, 102));
         YourHP.setForeground(new java.awt.Color(102, 255, 102));
         YourHP.setMaximum(150);
         YourHP.setValue(150);
@@ -135,72 +137,79 @@ public class Battle extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    
-    public void getDamage(int value) throws InterruptedException{
+    public void getDamage(int value) throws InterruptedException {
         int yourHP = YourHP.getValue();
-        
-        
-        
-        for(int i = 0; i <= value; i++){
-            
-            
+
+        for (int i = 0; i <= value; i++) {
+
             //System.out.println(i);
-            YourHP.setValue(yourHP - i);
+            if ((yourHP - i) >= 0) {
+                YourHP.setValue(yourHP - i);
+                PlayerHP.setText((yourHP - i) + "/150");
+            }
+
             Thread.sleep(100);
-            PlayerHP.setText((yourHP - i) + "/150");
+
         }
-        
+
+        if (YourHP.getValue() <= (yourHP * 0.3)) {
+            YourHP.setForeground(Color.red);
+        }
+
     }
-    
-    public void giveDamage(int value) throws InterruptedException{
+
+    public void giveDamage(int value) throws InterruptedException {
         int foeHP = FoeHP.getValue();
-        
+
         System.out.println("FoeHP is " + foeHP);
-        
+
         System.out.println("Damage will be " + value);
-        
+
         String foeHpValue = LblFoeHP.getText();
-        
-        
-        for(int i = 0; i <= value; i++){
-            
-            System.out.println("Value of HP: " + (foeHP - i));
+
+        for (int i = 0; i <= value; i++) {
+
             //System.out.println(i);
-            FoeHP.setValue(foeHP - i);
-            LblFoeHP.setText((foeHP - i) + "/150");
+            if ((foeHP - i) >= 0) {
+                FoeHP.setValue(foeHP - i);
+                LblFoeHP.setText((foeHP - i) + "/150");
+            }
+
             Thread.sleep(100);
         }
-        
+
+        if (FoeHP.getValue() <= (foeHP * 0.3)) {
+            FoeHP.setForeground(Color.red);
+        }
+
     }
-    
-    public int defineDamage(){
+
+    public int defineDamage() {
         int damage = 0;
-        
-        int[] moves = {20,30,15,40};
-        
-        int index = (int) (Math.random()*(4-1+1)+1);
-        
-        damage = moves[index-1];
-        
+
+        int[] moves = {20, 30, 15, 40};
+
+        int index = (int) (Math.random() * (4 - 1 + 1) + 1);
+
+        damage = moves[index - 1];
+
         System.out.println(damage);
         return damage;
     }
-    
-    
+
+
     private void BtnMove1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnMove1ActionPerformed
         // TODO add your handling code here:
-        
+
         try {
             giveDamage(45);
             getDamage(defineDamage());
-            
+
         } catch (InterruptedException ex) {
             Logger.getLogger(Battle.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-        
-        
-        
+
+
     }//GEN-LAST:event_BtnMove1ActionPerformed
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
