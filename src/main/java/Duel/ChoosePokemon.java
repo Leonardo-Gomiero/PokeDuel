@@ -346,6 +346,8 @@ public class ChoosePokemon extends javax.swing.JFrame {
         
         battleForm.foePokemon = randomizeFoe();
         
+        System.out.println("Foe: " + battleForm.foePokemon.getName());
+        
         ImageIcon foeIcon = new ImageIcon("C:/Users/Leonardo/Documents/Java/PokeDuel/src/main/resources/Images/" + battleForm.foePokemon.getName() + ".png");
         
         battleForm.PokemonFoe.setIcon(foeIcon);

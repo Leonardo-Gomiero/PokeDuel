@@ -33,13 +33,31 @@ public class Connect {
         int spAtk = getSpAtk(num);
         int spDef = getSpDef(num);
         int speed = getSpeed(num);
+        String move1 = getMove1(num);
+        String move2 = getMove2(num);
+        String move3 = getMove3(num);
+        String move4 = getMove4(num);
 
-        Pokemon pokemon = new Pokemon(name, ability, hp, attack, defense, spAtk, spDef, speed);
-        
+        Pokemon pokemon = new Pokemon(name, ability, hp, attack, defense, spAtk, spDef, speed, move1, move2, move3, move4);
+
         pokemon.showInfo();
-        
+
         return pokemon;
 
+    }
+    
+    public static Move Move(String moveName){
+        
+        String type = getMoveType(moveName);
+        String category = getMoveCategory(moveName);
+        int pp = getMovePP(moveName);
+        int power = getMovePower(moveName);
+        int accuracy = getMoveAccuracy(moveName);
+        
+        Move move = new Move(moveName, type, category, pp, power, accuracy);
+        
+        return move;
+        
     }
 
     public static String getName(int num) {
@@ -202,5 +220,184 @@ public class Connect {
             }
         }
         return speed;
+    }
+
+    public static String getMove1(int num) {
+        double value = 0;
+        String move1 = "";
+        try ( MongoClient mongo = new MongoClient("localhost", 27017);) {
+            MongoDatabase database = mongo.getDatabase("pokeduel");
+            MongoCollection<Document> collection = database.getCollection("pokemons");
+            try {
+                DistinctIterable<String> docs = collection.distinct("Move1", Filters.eq("_id", num), String.class);
+                MongoCursor<String> results = docs.iterator();
+                while (results.hasNext()) {
+
+                    move1 = results.next();
+                }
+            } catch (MongoException me) {
+                System.err.println("An error occurred: " + me);
+            }
+        }
+        return move1;
+    }
+
+    public static String getMove2(int num) {
+        double value = 0;
+        String move2 = "";
+        try ( MongoClient mongo = new MongoClient("localhost", 27017);) {
+            MongoDatabase database = mongo.getDatabase("pokeduel");
+            MongoCollection<Document> collection = database.getCollection("pokemons");
+            try {
+                DistinctIterable<String> docs = collection.distinct("Move2", Filters.eq("_id", num), String.class);
+                MongoCursor<String> results = docs.iterator();
+                while (results.hasNext()) {
+
+                    move2 = results.next();
+                }
+            } catch (MongoException me) {
+                System.err.println("An error occurred: " + me);
+            }
+        }
+        return move2;
+    }
+
+    public static String getMove3(int num) {
+        double value = 0;
+        String move3 = "";
+        try ( MongoClient mongo = new MongoClient("localhost", 27017);) {
+            MongoDatabase database = mongo.getDatabase("pokeduel");
+            MongoCollection<Document> collection = database.getCollection("pokemons");
+            try {
+                DistinctIterable<String> docs = collection.distinct("Move3", Filters.eq("_id", num), String.class);
+                MongoCursor<String> results = docs.iterator();
+                while (results.hasNext()) {
+
+                    move3 = results.next();
+                }
+            } catch (MongoException me) {
+                System.err.println("An error occurred: " + me);
+            }
+        }
+        return move3;
+    }
+
+    public static String getMove4(int num) {
+        double value = 0;
+        String move4 = "";
+        try ( MongoClient mongo = new MongoClient("localhost", 27017);) {
+            MongoDatabase database = mongo.getDatabase("pokeduel");
+            MongoCollection<Document> collection = database.getCollection("pokemons");
+            try {
+                DistinctIterable<String> docs = collection.distinct("Move4", Filters.eq("_id", num), String.class);
+                MongoCursor<String> results = docs.iterator();
+                while (results.hasNext()) {
+
+                    move4 = results.next();
+                }
+            } catch (MongoException me) {
+                System.err.println("An error occurred: " + me);
+            }
+        }
+        return move4;
+    }
+    
+    
+    
+    //Querying moves info
+    
+    public static String getMoveType(String name) {
+        String type = "";
+        try ( MongoClient mongo = new MongoClient("localhost", 27017);) {
+            MongoDatabase database = mongo.getDatabase("pokeduel");
+            MongoCollection<Document> collection = database.getCollection("moves");
+            try {
+                DistinctIterable<String> docs = collection.distinct("Type", Filters.eq("Name", name), String.class);
+                MongoCursor<String> results = docs.iterator();
+                while (results.hasNext()) {
+
+                    type = results.next();
+                }
+            } catch (MongoException me) {
+                System.err.println("An error occurred: " + me);
+            }
+        }
+        return type;
+    }
+    
+    public static String getMoveCategory(String name) {
+        String category = "";
+        try ( MongoClient mongo = new MongoClient("localhost", 27017);) {
+            MongoDatabase database = mongo.getDatabase("pokeduel");
+            MongoCollection<Document> collection = database.getCollection("moves");
+            try {
+                DistinctIterable<String> docs = collection.distinct("Category", Filters.eq("Name", name), String.class);
+                MongoCursor<String> results = docs.iterator();
+                while (results.hasNext()) {
+
+                    category = results.next();
+                }
+            } catch (MongoException me) {
+                System.err.println("An error occurred: " + me);
+            }
+        }
+        return category;
+    }
+    
+    public static int getMovePP(String name) {
+        int pp = 0;
+        try ( MongoClient mongo = new MongoClient("localhost", 27017);) {
+            MongoDatabase database = mongo.getDatabase("pokeduel");
+            MongoCollection<Document> collection = database.getCollection("moves");
+            try {
+                DistinctIterable<Integer> docs = collection.distinct("PP", Filters.eq("Name", name), Integer.class);
+                MongoCursor<Integer> results = docs.iterator();
+                while (results.hasNext()) {
+
+                    pp = results.next();
+                }
+            } catch (MongoException me) {
+                System.err.println("An error occurred: " + me);
+            }
+        }
+        return pp;
+    }
+    
+    public static int getMovePower(String name) {
+        int power = 0;
+        try ( MongoClient mongo = new MongoClient("localhost", 27017);) {
+            MongoDatabase database = mongo.getDatabase("pokeduel");
+            MongoCollection<Document> collection = database.getCollection("moves");
+            try {
+                DistinctIterable<Integer> docs = collection.distinct("Power", Filters.eq("Name", name), Integer.class);
+                MongoCursor<Integer> results = docs.iterator();
+                while (results.hasNext()) {
+
+                    power = results.next();
+                }
+            } catch (MongoException me) {
+                System.err.println("An error occurred: " + me);
+            }
+        }
+        return power;
+    }
+    
+    public static int getMoveAccuracy(String name) {
+        int accuracy = 0;
+        try ( MongoClient mongo = new MongoClient("localhost", 27017);) {
+            MongoDatabase database = mongo.getDatabase("pokeduel");
+            MongoCollection<Document> collection = database.getCollection("moves");
+            try {
+                DistinctIterable<Integer> docs = collection.distinct("Accuracy", Filters.eq("Name", name), Integer.class);
+                MongoCursor<Integer> results = docs.iterator();
+                while (results.hasNext()) {
+
+                    accuracy = results.next();
+                }
+            } catch (MongoException me) {
+                System.err.println("An error occurred: " + me);
+            }
+        }
+        return accuracy;
     }
 }
