@@ -60,7 +60,7 @@ public class Battle extends javax.swing.JFrame {
         BtnMove3 = new javax.swing.JButton();
         BtnMove4 = new javax.swing.JButton();
         Background = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
+        background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -135,9 +135,9 @@ public class Battle extends javax.swing.JFrame {
         Background.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         getContentPane().add(Background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\Leonardo\\Documents\\Java\\PokeDuel\\src\\main\\resources\\Images\\scenarioGiratina.png")); // NOI18N
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1040, 680));
+        background.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        background.setIcon(new javax.swing.ImageIcon("C:\\Users\\Leonardo\\Documents\\Java\\PokeDuel\\src\\main\\resources\\Images\\scenarioGiratina.png")); // NOI18N
+        getContentPane().add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1040, 680));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -153,7 +153,7 @@ public class Battle extends javax.swing.JFrame {
                 PlayerHP.setText((yourHP - i) + "/" + yourHP);
             }
 
-            Thread.sleep(100);
+            Thread.sleep(50);
 
         }
 
@@ -178,9 +178,10 @@ public class Battle extends javax.swing.JFrame {
             if ((foeHP - i) >= 0) {
                 FoeHP.setValue(foeHP - i);
                 LblFoeHP.setText((foeHP - i) + "/" + foeHP);
+                Thread.sleep(50);
             }
 
-            Thread.sleep(100);
+            Thread.sleep(50);
         }
 
         if (FoeHP.getValue() <= (foeHP * 0.3)) {
@@ -280,10 +281,10 @@ public class Battle extends javax.swing.JFrame {
     private javax.swing.JProgressBar FoeHP;
     public static javax.swing.JLabel LblFoeHP;
     private javax.swing.JLabel PlayerHP;
-    private javax.swing.JLabel PokemonChoosed;
+    public javax.swing.JLabel PokemonChoosed;
     public javax.swing.JLabel PokemonFoe;
     private javax.swing.JProgressBar YourHP;
-    private javax.swing.JLabel jLabel2;
+    public javax.swing.JLabel background;
     // End of variables declaration//GEN-END:variables
 
     private int moves(int index) {

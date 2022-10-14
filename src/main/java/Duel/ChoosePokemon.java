@@ -69,11 +69,11 @@ public class ChoosePokemon extends javax.swing.JFrame {
         Background = new javax.swing.JPanel();
         LblPokedex = new javax.swing.JLabel();
         LblName = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
+        ImgReshiram = new javax.swing.JLabel();
+        ImgElectivire = new javax.swing.JLabel();
+        ImgRayquaza = new javax.swing.JLabel();
+        ImgArceus = new javax.swing.JLabel();
+        ImgGiratina = new javax.swing.JLabel();
         LblPokemonChoosed = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         LblAbility = new javax.swing.JLabel();
@@ -102,50 +102,50 @@ public class ChoosePokemon extends javax.swing.JFrame {
         LblName.setText("Pokémon Name");
         Background.add(LblName, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 340, 390, -1));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Leonardo\\Documents\\Java\\PokeDuel\\src\\main\\resources\\Images\\ReshiramPokeBall.png")); // NOI18N
-        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
+        ImgReshiram.setIcon(new javax.swing.ImageIcon("C:\\Users\\Leonardo\\Documents\\Java\\PokeDuel\\src\\main\\resources\\Images\\ReshiramPokeBall.png")); // NOI18N
+        ImgReshiram.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel1MouseClicked(evt);
+                ImgReshiramMouseClicked(evt);
             }
         });
-        Background.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 450, -1, -1));
+        Background.add(ImgReshiram, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 450, -1, -1));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\Leonardo\\Documents\\Java\\PokeDuel\\src\\main\\resources\\Images\\ElectivirePokeBall.png")); // NOI18N
-        jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
+        ImgElectivire.setIcon(new javax.swing.ImageIcon("C:\\Users\\Leonardo\\Documents\\Java\\PokeDuel\\src\\main\\resources\\Images\\ElectivirePokeBall.png")); // NOI18N
+        ImgElectivire.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel2MouseClicked(evt);
+                ImgElectivireMouseClicked(evt);
             }
         });
-        Background.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 450, -1, -1));
+        Background.add(ImgElectivire, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 450, -1, -1));
 
-        jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Users\\Leonardo\\Documents\\Java\\PokeDuel\\src\\main\\resources\\Images\\RayquazaPokeBall.png")); // NOI18N
-        jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
+        ImgRayquaza.setIcon(new javax.swing.ImageIcon("C:\\Users\\Leonardo\\Documents\\Java\\PokeDuel\\src\\main\\resources\\Images\\RayquazaPokeBall.png")); // NOI18N
+        ImgRayquaza.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel3MouseClicked(evt);
+                ImgRayquazaMouseClicked(evt);
             }
         });
-        Background.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 450, -1, -1));
+        Background.add(ImgRayquaza, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 450, -1, -1));
 
-        jLabel4.setIcon(new javax.swing.ImageIcon("C:\\Users\\Leonardo\\Documents\\Java\\PokeDuel\\src\\main\\resources\\Images\\ArceusPokeBall.png")); // NOI18N
-        jLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
+        ImgArceus.setIcon(new javax.swing.ImageIcon("C:\\Users\\Leonardo\\Documents\\Java\\PokeDuel\\src\\main\\resources\\Images\\ArceusPokeBall.png")); // NOI18N
+        ImgArceus.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel4MouseClicked(evt);
+                ImgArceusMouseClicked(evt);
             }
         });
-        Background.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 450, -1, -1));
+        Background.add(ImgArceus, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 450, -1, -1));
 
-        jLabel5.setIcon(new javax.swing.ImageIcon("C:\\Users\\Leonardo\\Documents\\Java\\PokeDuel\\src\\main\\resources\\Images\\GiratinaPokeBall.png")); // NOI18N
-        jLabel5.addMouseListener(new java.awt.event.MouseAdapter() {
+        ImgGiratina.setIcon(new javax.swing.ImageIcon("C:\\Users\\Leonardo\\Documents\\Java\\PokeDuel\\src\\main\\resources\\Images\\GiratinaPokeBall.png")); // NOI18N
+        ImgGiratina.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel5MouseClicked(evt);
+                ImgGiratinaMouseClicked(evt);
             }
         });
-        jLabel5.addKeyListener(new java.awt.event.KeyAdapter() {
+        ImgGiratina.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                jLabel5KeyPressed(evt);
+                ImgGiratinaKeyPressed(evt);
             }
         });
-        Background.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 450, -1, -1));
+        Background.add(ImgGiratina, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 450, -1, -1));
 
         LblPokemonChoosed.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         LblPokemonChoosed.setIcon(new javax.swing.ImageIcon("C:\\Users\\Leonardo\\Documents\\Java\\PokeDuel\\src\\main\\resources\\Images\\Giratina.png")); // NOI18N
@@ -227,10 +227,10 @@ public class ChoosePokemon extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
+    private void ImgReshiramMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ImgReshiramMouseClicked
         icon = new ImageIcon("C:/Users/Leonardo/Documents/Java/PokeDuel/src/main/resources/Images/Reshiram.png");
         LblPokemonChoosed.setIcon(icon);
-        Pokemon pokemon = Connect.Pokemon(643);
+        pokemon = Connect.Pokemon(643);
         loadStats(pokemon);
         BtnPlay.setEnabled(true);
         
@@ -242,13 +242,13 @@ public class ChoosePokemon extends javax.swing.JFrame {
         
         LblPokedex.setText("643");
         LblName.setText(pokemon.getName());
-    }//GEN-LAST:event_jLabel1MouseClicked
+    }//GEN-LAST:event_ImgReshiramMouseClicked
 
-    private void jLabel5KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jLabel5KeyPressed
+    private void ImgGiratinaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ImgGiratinaKeyPressed
         
-    }//GEN-LAST:event_jLabel5KeyPressed
+    }//GEN-LAST:event_ImgGiratinaKeyPressed
 
-    private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
+    private void ImgRayquazaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ImgRayquazaMouseClicked
         icon = new ImageIcon("C:/Users/Leonardo/Documents/Java/PokeDuel/src/main/resources/Images/Rayquaza.png");
         LblPokemonChoosed.setIcon(icon);
         pokemon = Connect.Pokemon(384);
@@ -265,9 +265,9 @@ public class ChoosePokemon extends javax.swing.JFrame {
         
         LblPokedex.setText("384");
         LblName.setText(pokemon.getName());
-    }//GEN-LAST:event_jLabel3MouseClicked
+    }//GEN-LAST:event_ImgRayquazaMouseClicked
 
-    private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
+    private void ImgGiratinaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ImgGiratinaMouseClicked
         icon = new ImageIcon("C:/Users/Leonardo/Documents/Java/PokeDuel/src/main/resources/Images/Giratina.png");
         LblPokemonChoosed.setIcon(icon);
         pokemon = Connect.Pokemon(487);
@@ -284,9 +284,9 @@ public class ChoosePokemon extends javax.swing.JFrame {
         
         LblPokedex.setText("487");
         LblName.setText(pokemon.getName());
-    }//GEN-LAST:event_jLabel5MouseClicked
+    }//GEN-LAST:event_ImgGiratinaMouseClicked
 
-    private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
+    private void ImgArceusMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ImgArceusMouseClicked
         icon = new ImageIcon("C:/Users/Leonardo/Documents/Java/PokeDuel/src/main/resources/Images/Arceus.png");
         LblPokemonChoosed.setIcon(icon);
         pokemon = Connect.Pokemon(493);
@@ -300,9 +300,9 @@ public class ChoosePokemon extends javax.swing.JFrame {
         
         LblPokedex.setText("493");
         LblName.setText(pokemon.getName());
-    }//GEN-LAST:event_jLabel4MouseClicked
+    }//GEN-LAST:event_ImgArceusMouseClicked
 
-    private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
+    private void ImgElectivireMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ImgElectivireMouseClicked
         icon = new ImageIcon("C:/Users/Leonardo/Documents/Java/PokeDuel/src/main/resources/Images/Electivire.png");
         LblPokemonChoosed.setIcon(icon);
         pokemon = Connect.Pokemon(466);
@@ -317,7 +317,7 @@ public class ChoosePokemon extends javax.swing.JFrame {
         
         LblPokedex.setText("466");
         LblName.setText(pokemon.getName());
-    }//GEN-LAST:event_jLabel2MouseClicked
+    }//GEN-LAST:event_ImgElectivireMouseClicked
 
     private Pokemon randomizeFoe(){
         int[] foes = {466, 487, 384, 493, 643};
@@ -346,11 +346,19 @@ public class ChoosePokemon extends javax.swing.JFrame {
         
         battleForm.foePokemon = randomizeFoe();
         
-        System.out.println("Foe: " + battleForm.foePokemon.getName());
+        
         
         ImageIcon foeIcon = new ImageIcon("C:/Users/Leonardo/Documents/Java/PokeDuel/src/main/resources/Images/" + battleForm.foePokemon.getName() + ".png");
         
         battleForm.PokemonFoe.setIcon(foeIcon);
+        
+        ImageIcon backgroundIcon = new ImageIcon("C:/Users/Leonardo/Documents/Java/PokeDuel/src/main/resources/Images/scenario" + battleForm.foePokemon.getName() + ".png");
+        
+        battleForm.background.setIcon(backgroundIcon);
+        
+        ImageIcon playerIcon = new ImageIcon("C:/Users/Leonardo/Documents/Java/PokeDuel/src/main/resources/Images/back" + battleForm.playerPokemon.getName() + ".png");
+        
+        battleForm.PokemonChoosed.setIcon(playerIcon);
         
         battleForm.setVisible(true);
         
@@ -395,6 +403,11 @@ public class ChoosePokemon extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Background;
     private javax.swing.JButton BtnPlay;
+    private javax.swing.JLabel ImgArceus;
+    private javax.swing.JLabel ImgElectivire;
+    private javax.swing.JLabel ImgGiratina;
+    private javax.swing.JLabel ImgRayquaza;
+    private javax.swing.JLabel ImgReshiram;
     private javax.swing.JLabel LblAbility;
     private javax.swing.JLabel LblName;
     private javax.swing.JLabel LblPokedex;
@@ -403,11 +416,6 @@ public class ChoosePokemon extends javax.swing.JFrame {
     private javax.swing.JTable TableStats;
     private javax.swing.JButton Type1;
     private javax.swing.JButton Type2;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JScrollPane jScrollPane1;

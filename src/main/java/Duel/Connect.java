@@ -40,7 +40,7 @@ public class Connect {
 
         Pokemon pokemon = new Pokemon(name, ability, hp, attack, defense, spAtk, spDef, speed, move1, move2, move3, move4);
 
-        pokemon.showInfo();
+        //pokemon.showInfo();
 
         return pokemon;
 
