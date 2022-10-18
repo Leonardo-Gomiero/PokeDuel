@@ -1,13 +1,6 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package Duel;
 
-/**
- *
- * @author Leonardo
- */
+
 public class Move {
     String name;
     String type;
@@ -23,6 +16,17 @@ public class Move {
         this.pp = pp;
         this.power = power;
         this.accuracy = accuracy;
+    }
+    
+     public void showInfo(){
+         System.out.println(
+                "\n\nName: " + this.name
+                + "\nType: " + this.type
+                + "\nCategory: " + this.category
+                + "\nPP: " + this.pp
+                + "\nPower: " + this.power
+                + "\nAccuracy: " + this.accuracy
+        );
     }
 
     public String getName() {
@@ -72,6 +76,5 @@ public class Move {
     public void setAccuracy(int accuracy) {
         this.accuracy = accuracy;
     }
-    
     
 }

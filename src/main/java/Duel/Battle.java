@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package Duel;
 
 import java.awt.Color;
@@ -13,25 +9,26 @@ import java.net.URL;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-/**
- *
- * @author Leonardo
- */
 public class Battle extends javax.swing.JFrame {
 
-    Color ghost = new Color(51,0,204);
-    Color dragon =  new Color(0, 0, 102);
-    Color fire =  new Color(255,51,0);
-    Color flying =  new Color(0,153,153);
-    Color normal =  new Color(102,102,102);
-    Color electric =  new Color(255,204,0);
-    Color normalText = new Color(204,204,204);
-    Color white =  new Color(255, 255, 255);
+    Color ghost = new Color(51, 0, 204);
+    Color dragon = new Color(0, 0, 102);
+    Color fire = new Color(255, 51, 0);
+    Color flying = new Color(0, 153, 153);
+    Color normal = new Color(102, 102, 102);
+    Color electric = new Color(255, 204, 0);
+
+    Color normalText = new Color(204, 204, 204);
+    Color white = new Color(255, 255, 255);
     Pokemon playerPokemon;
-    
+
     Pokemon foePokemon;
-    
-    
+
+    Move playerMove1;
+    Move playerMove2;
+    Move playerMove3;
+    Move playerMove4;
+
     public Battle() {
         initComponents();
         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
@@ -142,18 +139,115 @@ public class Battle extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    public void defineMove(Move move, int index) {
+
+        if (index == 1) {
+            switch (move.getType()) {
+                case "Ghost":
+                    BtnMove1.setBackground(ghost);
+                    break;
+                case "Dragon":
+                    BtnMove1.setBackground(dragon);
+                    break;
+                case "Normal":
+                    BtnMove1.setBackground(normal);
+                    break;
+                case "Flying":
+                    BtnMove1.setBackground(flying);
+                    break;
+                case "Fire":
+                    BtnMove1.setBackground(fire);
+                    break;
+                case "Electric":
+                    BtnMove1.setBackground(electric);
+                    break;
+            }
+
+            BtnMove1.setText(move.getName());
+        }else if  (index == 2) {
+            switch (move.getType()) {
+                case "Ghost":
+                    BtnMove2.setBackground(ghost);
+                    break;
+                case "Dragon":
+                    BtnMove2.setBackground(dragon);
+                    break;
+                case "Normal":
+                    BtnMove2.setBackground(normal);
+                    break;
+                case "Flying":
+                    BtnMove2.setBackground(flying);
+                    break;
+                case "Fire":
+                    BtnMove2.setBackground(fire);
+                    break;
+                case "Electric":
+                    BtnMove2.setBackground(electric);
+                    break;
+            }
+
+            BtnMove2.setText(move.getName());
+        }else if  (index == 3) {
+            switch (move.getType()) {
+                case "Ghost":
+                    BtnMove3.setBackground(ghost);
+                    break;
+                case "Dragon":
+                    BtnMove3.setBackground(dragon);
+                    break;
+                case "Normal":
+                    BtnMove3.setBackground(normal);
+                    break;
+                case "Flying":
+                    BtnMove3.setBackground(flying);
+                    break;
+                case "Fire":
+                    BtnMove3.setBackground(fire);
+                    break;
+                case "Electric":
+                    BtnMove3.setBackground(electric);
+                    break;
+            }
+
+            BtnMove3.setText(move.getName());
+        }else if  (index == 4) {
+            switch (move.getType()) {
+                case "Ghost":
+                    BtnMove4.setBackground(ghost);
+                    break;
+                case "Dragon":
+                    BtnMove4.setBackground(dragon);
+                    break;
+                case "Normal":
+                    BtnMove4.setBackground(normal);
+                    break;
+                case "Flying":
+                    BtnMove4.setBackground(flying);
+                    break;
+                case "Fire":
+                    BtnMove4.setBackground(fire);
+                    break;
+                case "Electric":
+                    BtnMove4.setBackground(electric);
+                    break;
+            }
+
+            BtnMove4.setText(move.getName());
+        }
+
+    }
+
     public void getDamage(int value) throws InterruptedException {
         int yourHP = YourHP.getValue();
 
         for (int i = 0; i <= value; i++) {
 
-            //System.out.println(i);
             if ((yourHP - i) >= 0) {
                 YourHP.setValue(yourHP - i);
                 PlayerHP.setText((yourHP - i) + "/" + yourHP);
             }
 
-            Thread.sleep(50);
+            //Thread.sleep(50);
 
         }
 
@@ -178,10 +272,9 @@ public class Battle extends javax.swing.JFrame {
             if ((foeHP - i) >= 0) {
                 FoeHP.setValue(foeHP - i);
                 LblFoeHP.setText((foeHP - i) + "/" + foeHP);
-                Thread.sleep(50);
             }
 
-            Thread.sleep(50);
+            //Thread.sleep(50);
         }
 
         if (FoeHP.getValue() <= (foeHP * 0.3)) {
@@ -191,12 +284,12 @@ public class Battle extends javax.swing.JFrame {
     }
 
     public int defineDamage() {
-        
+
         Move move1 = Connect.Move(foePokemon.getMove1());
         Move move2 = Connect.Move(foePokemon.getMove2());
         Move move3 = Connect.Move(foePokemon.getMove3());
         Move move4 = Connect.Move(foePokemon.getMove4());
-        
+
         int damage = 0;
 
         int[] moves = {move1.getPower(), move2.getPower(), move3.getPower(), move4.getPower()};
@@ -209,18 +302,16 @@ public class Battle extends javax.swing.JFrame {
         return damage;
     }
 
+    public void fight(Move movePlayer, Move moveFoe) throws InterruptedException{
+        if (playerPokemon.getSpeed() > foePokemon.getSpeed()){
+            giveDamage(playerMove1.getPower());
+            getDamage(defineDamage());
+        }
+    }
 
     private void BtnMove1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnMove1ActionPerformed
         // TODO add your handling code here:
-
-        try {
-            Move move1 = Connect.Move(playerPokemon.getMove1());
-            giveDamage(move1.getPower());
-            getDamage(defineDamage());
-
-        } catch (InterruptedException ex) {
-            Logger.getLogger(Battle.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        Move move1 = Connect.Move(playerPokemon.getMove1());
 
 
     }//GEN-LAST:event_BtnMove1ActionPerformed
@@ -228,13 +319,20 @@ public class Battle extends javax.swing.JFrame {
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
         // TODO add your handling code here:
         FoeHP.setForeground(Color.green);
-        
+
         //Set foe HP bar:
         LblFoeHP.setText(String.valueOf(foePokemon.getHp()) + "/" + String.valueOf(foePokemon.getHp()));
         FoeHP.setMaximum(foePokemon.getHp());
-        
+
         PlayerHP.setText(String.valueOf(playerPokemon.getHp()) + "/" + String.valueOf(playerPokemon.getHp()));
         YourHP.setMaximum(playerPokemon.getHp());
+
+        playerMove1.showInfo();
+        defineMove(playerMove1, 1);
+        defineMove(playerMove2, 2);
+        defineMove(playerMove3, 3);
+        defineMove(playerMove4, 4);
+
     }//GEN-LAST:event_formWindowActivated
 
     /**

@@ -170,6 +170,9 @@ public class ChoosePokemon extends javax.swing.JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 BtnPlayMouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                BtnPlayMouseEntered(evt);
+            }
         });
         BtnPlay.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -334,36 +337,45 @@ public class ChoosePokemon extends javax.swing.JFrame {
     
     
     private void BtnPlayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnPlayActionPerformed
-        // TODO add your handling code here:
+        //Declaring a new Battle form, as well as defining a random Pokémon opponent
+        Battle battleForm = new Battle();
+        battleForm.playerPokemon = this.pokemon;
+        battleForm.foePokemon = randomizeFoe();
+        
+        
+        
+        //Define the images used in the battle
+        ImageIcon foeIcon = new ImageIcon("C:/Users/Leonardo/Documents/Java/PokeDuel/src/main/resources/Images/" + battleForm.foePokemon.getName() + ".png");
+        battleForm.PokemonFoe.setIcon(foeIcon);
+        ImageIcon backgroundIcon = new ImageIcon("C:/Users/Leonardo/Documents/Java/PokeDuel/src/main/resources/Images/scenario" + battleForm.foePokemon.getName() + ".png");
+        
+        battleForm.background.setIcon(backgroundIcon);
+        ImageIcon playerIcon = new ImageIcon("C:/Users/Leonardo/Documents/Java/PokeDuel/src/main/resources/Images/back" + battleForm.playerPokemon.getName() + ".png");
+        battleForm.PokemonChoosed.setIcon(playerIcon);
+        
+        
+        //Define all Moves from the Player Pokémon
+        battleForm.playerMove1 = Connect.Move(battleForm.playerPokemon.getMove1());
+        battleForm.playerMove2 = Connect.Move(battleForm.playerPokemon.getMove2());
+        battleForm.playerMove3 = Connect.Move(battleForm.playerPokemon.getMove3());
+        battleForm.playerMove4 = Connect.Move(battleForm.playerPokemon.getMove4());
+        
+        
+        
+        
+        battleForm.setVisible(true);
+        dispose();
 
     }//GEN-LAST:event_BtnPlayActionPerformed
 
     private void BtnPlayMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnPlayMouseClicked
         // TODO add your handling code here:
-        Battle battleForm = new Battle();
         
-        battleForm.playerPokemon = this.pokemon;
-        
-        battleForm.foePokemon = randomizeFoe();
-        
-        
-        
-        ImageIcon foeIcon = new ImageIcon("C:/Users/Leonardo/Documents/Java/PokeDuel/src/main/resources/Images/" + battleForm.foePokemon.getName() + ".png");
-        
-        battleForm.PokemonFoe.setIcon(foeIcon);
-        
-        ImageIcon backgroundIcon = new ImageIcon("C:/Users/Leonardo/Documents/Java/PokeDuel/src/main/resources/Images/scenario" + battleForm.foePokemon.getName() + ".png");
-        
-        battleForm.background.setIcon(backgroundIcon);
-        
-        ImageIcon playerIcon = new ImageIcon("C:/Users/Leonardo/Documents/Java/PokeDuel/src/main/resources/Images/back" + battleForm.playerPokemon.getName() + ".png");
-        
-        battleForm.PokemonChoosed.setIcon(playerIcon);
-        
-        battleForm.setVisible(true);
-        
-        dispose();
     }//GEN-LAST:event_BtnPlayMouseClicked
+
+    private void BtnPlayMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnPlayMouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BtnPlayMouseEntered
 
     /**
      * @param args the command line arguments
