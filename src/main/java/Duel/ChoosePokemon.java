@@ -76,16 +76,21 @@ public class ChoosePokemon extends javax.swing.JFrame {
         ImgGiratina = new javax.swing.JLabel();
         LblPokemonChoosed = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        LblAbility = new javax.swing.JLabel();
         BtnPlay = new javax.swing.JButton();
         SelectionBar = new javax.swing.JLabel();
         Type2 = new javax.swing.JButton();
+        LblAbility = new javax.swing.JLabel();
         Type1 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         TableStats = new javax.swing.JTable();
         jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowActivated(java.awt.event.WindowEvent evt) {
+                formWindowActivated(evt);
+            }
+        });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         Background.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -154,14 +159,6 @@ public class ChoosePokemon extends javax.swing.JFrame {
         jLabel7.setIcon(new javax.swing.ImageIcon("C:\\Users\\Leonardo\\Documents\\Java\\PokeDuel\\src\\main\\resources\\Images\\ability.png")); // NOI18N
         Background.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 350, -1, 70));
 
-        LblAbility.setBackground(new java.awt.Color(51, 51, 51));
-        LblAbility.setFont(new java.awt.Font("Segoe UI", 2, 18)); // NOI18N
-        LblAbility.setForeground(new java.awt.Color(255, 255, 255));
-        LblAbility.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        LblAbility.setText("Ability");
-        LblAbility.setOpaque(true);
-        Background.add(LblAbility, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 360, 330, 40));
-
         BtnPlay.setBackground(new java.awt.Color(51, 255, 51));
         BtnPlay.setFont(new java.awt.Font("Yu Gothic Medium", 3, 18)); // NOI18N
         BtnPlay.setForeground(new java.awt.Color(0, 0, 0));
@@ -190,6 +187,14 @@ public class ChoosePokemon extends javax.swing.JFrame {
         Type2.setText("DRAGON");
         Type2.setFocusable(false);
         Background.add(Type2, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 290, 190, 50));
+
+        LblAbility.setBackground(new java.awt.Color(51, 51, 51));
+        LblAbility.setFont(new java.awt.Font("Segoe UI", 2, 18)); // NOI18N
+        LblAbility.setForeground(new java.awt.Color(255, 255, 255));
+        LblAbility.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        LblAbility.setText("Ability");
+        LblAbility.setOpaque(true);
+        Background.add(LblAbility, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 360, 330, 40));
 
         Type1.setBackground(new java.awt.Color(255, 204, 0));
         Type1.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
@@ -376,6 +381,25 @@ public class ChoosePokemon extends javax.swing.JFrame {
     private void BtnPlayMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnPlayMouseEntered
         // TODO add your handling code here:
     }//GEN-LAST:event_BtnPlayMouseEntered
+
+    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
+        icon = new ImageIcon("C:/Users/Leonardo/Documents/Java/PokeDuel/src/main/resources/Images/Giratina.png");
+        LblPokemonChoosed.setIcon(icon);
+        pokemon = Connect.Pokemon(487);
+        loadStats(pokemon);
+        BtnPlay.setEnabled(true);
+        
+        Type1.setBackground(ghost);
+        Type1.setText("GHOST");
+        
+        Type2.setVisible(true);
+        Type2.setBackground(dragon);
+        Type2.setText("DRAGON");
+        
+        
+        LblPokedex.setText("487");
+        LblName.setText(pokemon.getName());
+    }//GEN-LAST:event_formWindowActivated
 
     /**
      * @param args the command line arguments
