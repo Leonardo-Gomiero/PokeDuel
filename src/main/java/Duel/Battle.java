@@ -291,7 +291,10 @@ public class Battle extends javax.swing.JFrame {
         }
     }
 
-    public class getNiceDamage extends Thread {
+    public class Fight extends Thread {
+
+        int foeHP = FoeHP.getValue();
+        String foeHpValue = LblFoeHP.getText();
 
         int yourHP = YourHP.getValue();
         int value = defineDamage();
@@ -300,107 +303,82 @@ public class Battle extends javax.swing.JFrame {
         public void run() {
 
             try {
-                int yourHP = YourHP.getValue();
+                if (playerPokemon.getSpeed() > foePokemon.getSpeed()) {
 
-                for (int i = 0; i <= value; i++) {
+                    //Give damage before getting damage:
+                    for (int i = 0; i <= actualMove.getPower(); i++) {
 
-                    System.out.println("Damage received: " + i);
-                    if ((yourHP - i) >= 0) {
-                        YourHP.setValue(yourHP - i);
-                        PlayerHP.setText((yourHP - i) + "/" + yourHP);
+                        System.out.println("Damage given: " + i);
+                        if ((foeHP - i) >= 0) {
+                            FoeHP.setValue(foeHP - i);
+                            LblFoeHP.setText((foeHP - i) + "/" + foeHP);
+                            Thread.sleep(100);
+                        }
+                        checkWinner();
                     }
 
-                    Thread.sleep(100);
-                }
-                checkWinner();
-                if (YourHP.getValue() <= (yourHP * 0.3)) {
-                    YourHP.setForeground(Color.red);
-                }
+                    if (FoeHP.getValue() <= (foeHP * 0.3)) {
+                        FoeHP.setForeground(Color.red);
+                    }
 
-            } catch (InterruptedException ex) {
-                Logger.getLogger(Battle.class.getName()).log(Level.SEVERE, null, ex);
-            }
+                    //Take damage after giving damage:
+                    int yourHP = YourHP.getValue();
 
-        }
+                    for (int i = 0; i <= value; i++) {
 
-    }
+                        System.out.println("Damage received: " + i);
+                        if ((yourHP - i) >= 0) {
+                            YourHP.setValue(yourHP - i);
+                            PlayerHP.setText((yourHP - i) + "/" + yourHP);
+                            Thread.sleep(100);
+                        }
+                        checkWinner();
+                    }
 
-    public void getDamage(int value) throws InterruptedException {
-        int yourHP = YourHP.getValue();
+                    if (YourHP.getValue() <= (yourHP * 0.3)) {
+                        YourHP.setForeground(Color.red);
+                    }
+                } else {
 
-        for (int i = 0; i <= value; i++) {
+                    //Take damage
+                    int yourHP = YourHP.getValue();
 
-            System.out.println("Damage received: " + i);
-            if ((yourHP - i) >= 0) {
-                YourHP.setValue(yourHP - i);
-                PlayerHP.setText((yourHP - i) + "/" + yourHP);
-            }
+                    for (int i = 0; i <= value; i++) {
 
-            //Thread.sleep(50);
-        }
-        checkWinner();
-        if (YourHP.getValue() <= (yourHP * 0.3)) {
-            YourHP.setForeground(Color.red);
-        }
+                        System.out.println("Damage received: " + i);
+                        if ((yourHP - i) >= 0) {
+                            YourHP.setValue(yourHP - i);
+                            PlayerHP.setText((yourHP - i) + "/" + yourHP);
+                        }
 
-    }
-
-    public class giveNiceDamage extends Thread {
-
-        int foeHP = FoeHP.getValue();
-
-        String foeHpValue = LblFoeHP.getText();
-
-        @Override
-        public void run() {
-
-            try {
-                for (int i = 0; i <= actualMove.getPower(); i++) {
-
-                    System.out.println("Damage given: " + i);
-                    if ((foeHP - i) >= 0) {
-                        FoeHP.setValue(foeHP - i);
-                        LblFoeHP.setText((foeHP - i) + "/" + foeHP);
                         Thread.sleep(100);
                     }
-                }
-                checkWinner();
+                    checkWinner();
+                    if (YourHP.getValue() <= (yourHP * 0.3)) {
+                        YourHP.setForeground(Color.red);
+                    }
 
-                if (FoeHP.getValue() <= (foeHP * 0.3)) {
-                    FoeHP.setForeground(Color.red);
+                    //Give damage
+                    for (int i = 0; i <= actualMove.getPower(); i++) {
+
+                        System.out.println("Damage given: " + i);
+                        if ((foeHP - i) >= 0) {
+                            FoeHP.setValue(foeHP - i);
+                            LblFoeHP.setText((foeHP - i) + "/" + foeHP);
+                            Thread.sleep(100);
+                        }
+                    }
+                    checkWinner();
+
+                    if (FoeHP.getValue() <= (foeHP * 0.3)) {
+                        FoeHP.setForeground(Color.red);
+                    }
                 }
 
             } catch (InterruptedException ex) {
                 Logger.getLogger(Battle.class.getName()).log(Level.SEVERE, null, ex);
             }
 
-        }
-
-    }
-
-    public void giveDamage(int value) throws InterruptedException {
-
-        int foeHP = FoeHP.getValue();
-
-        System.out.println("FoeHP is " + foeHP);
-
-        System.out.println("Damage will be " + value);
-
-        String foeHpValue = LblFoeHP.getText();
-
-        for (int i = 0; i <= value; i++) {
-
-            System.out.println("Damage given: " + i);
-            if ((foeHP - i) >= 0) {
-                FoeHP.setValue(foeHP - i);
-                LblFoeHP.setText((foeHP - i) + "/" + foeHP);
-
-            }
-        }
-        checkWinner();
-
-        if (FoeHP.getValue() <= (foeHP * 0.3)) {
-            FoeHP.setForeground(Color.red);
         }
 
     }
@@ -425,31 +403,11 @@ public class Battle extends javax.swing.JFrame {
         return damage;
     }
 
-    public void fight(Move movePlayer, int damageTaken) throws InterruptedException {
-        if (playerPokemon.getSpeed() > foePokemon.getSpeed()) {
-            giveDamage(movePlayer.getPower() / 2);
-            giveNiceDamage hit = new giveNiceDamage();
-            hit.start();
-
-            getNiceDamage damage = new getNiceDamage();
-            damage.start();
-        } else {
-            getNiceDamage damage = new getNiceDamage();
-            damage.start();
-
-            //giveDamage(movePlayer.getPower());
-            giveNiceDamage hit = new giveNiceDamage();
-            hit.start();
-        }
-    }
 
     private void BtnMove1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnMove1ActionPerformed
-        try {
-            actualMove = playerMove1;
-            fight(playerMove1, defineDamage());
-        } catch (InterruptedException ex) {
-            Logger.getLogger(Battle.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        actualMove = playerMove1;
+        Fight fight = new Fight();
+        fight.start();
 
 
     }//GEN-LAST:event_BtnMove1ActionPerformed
@@ -477,30 +435,21 @@ public class Battle extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowActivated
 
     private void BtnMove2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnMove2ActionPerformed
-        try {
-            actualMove = playerMove2;
-            fight(playerMove2, defineDamage());
-        } catch (InterruptedException ex) {
-            Logger.getLogger(Battle.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        actualMove = playerMove2;
+        Fight fight = new Fight();
+        fight.start();
     }//GEN-LAST:event_BtnMove2ActionPerformed
 
     private void BtnMove3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnMove3ActionPerformed
-        try {
-            actualMove = playerMove3;
-            fight(playerMove3, defineDamage());
-        } catch (InterruptedException ex) {
-            Logger.getLogger(Battle.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        actualMove = playerMove3;
+        Fight fight = new Fight();
+        fight.start();
     }//GEN-LAST:event_BtnMove3ActionPerformed
 
     private void BtnMove4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnMove4ActionPerformed
-        try {
-            actualMove = playerMove4;
-            fight(playerMove4, defineDamage());
-        } catch (InterruptedException ex) {
-            Logger.getLogger(Battle.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        actualMove = playerMove4;
+        Fight fight = new Fight();
+        fight.start();
     }//GEN-LAST:event_BtnMove4ActionPerformed
 
     /**

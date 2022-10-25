@@ -22,9 +22,7 @@ public class CharacterSelection extends javax.swing.JFrame {
     boolean female = false;
     String gender = "";
 
-    /**
-     * Creates new form CharacterSelection
-     */
+    
     public CharacterSelection() {
         initComponents();
         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
