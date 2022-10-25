@@ -31,8 +31,11 @@ public class Battle extends javax.swing.JFrame {
     Move playerMove4;
 
     Move actualMove;
+    String actualFoeMove;
 
     boolean tempo = true;
+
+    int index = 0;
 
     public Battle() {
         initComponents();
@@ -65,8 +68,16 @@ public class Battle extends javax.swing.JFrame {
         BtnMove4 = new javax.swing.JButton();
         Background = new javax.swing.JPanel();
         background = new javax.swing.JLabel();
+        LblText = new javax.swing.JLabel();
+        LblChat = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                formMouseClicked(evt);
+            }
+        });
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowActivated(java.awt.event.WindowEvent evt) {
                 formWindowActivated(evt);
@@ -167,6 +178,19 @@ public class Battle extends javax.swing.JFrame {
         background.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         background.setIcon(new javax.swing.ImageIcon("C:\\Users\\Leonardo\\Documents\\Java\\PokeDuel\\src\\main\\resources\\Images\\scenarioGiratina.png")); // NOI18N
         getContentPane().add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1040, 680));
+
+        LblText.setFont(new java.awt.Font("Courier New", 1, 24)); // NOI18N
+        LblText.setForeground(new java.awt.Color(0, 0, 0));
+        LblText.setText("...");
+        getContentPane().add(LblText, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 700, 850, 150));
+
+        LblChat.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        LblChat.setIcon(new javax.swing.ImageIcon("C:\\Users\\Leonardo\\Documents\\Java\\PokeDuel\\src\\main\\resources\\Images\\chatBox.png")); // NOI18N
+        getContentPane().add(LblChat, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 680, -1, -1));
+
+        jPanel1.setBackground(new java.awt.Color(0, 0, 0));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 680, 1040, 200));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -283,11 +307,27 @@ public class Battle extends javax.swing.JFrame {
 
     public void checkWinner() {
         if (YourHP.getValue() == 0) {
+            int wait = index;
+
+            while (wait == index) {
+                LblText.setText("<html>Your " + playerPokemon.getName() + " has fainted!<br>This is it...");
+                PokemonChoosed.setVisible(false);
+            }
             System.out.println("You Lose!");
             dispose();
+            System.exit(0);
+            
+
         } else if (FoeHP.getValue() == 0) {
+            int wait = index;
+
+            while (wait == index) {
+                LblText.setText("<html>The foe's " + foePokemon.getName() + " has fainted!<br>This is over! You are the true Pokémon Master!");
+                PokemonFoe.setVisible(false);
+            }
             System.out.println("You Win!");
             dispose();
+            System.exit(0);
         }
     }
 
@@ -309,6 +349,7 @@ public class Battle extends javax.swing.JFrame {
                     for (int i = 0; i <= actualMove.getPower(); i++) {
 
                         System.out.println("Damage given: " + i);
+                        LblText.setText("Your " + playerPokemon.getName() + " used " + actualMove.getName() + "!");
                         if ((foeHP - i) >= 0) {
                             FoeHP.setValue(foeHP - i);
                             LblFoeHP.setText((foeHP - i) + "/" + foeHP);
@@ -324,6 +365,7 @@ public class Battle extends javax.swing.JFrame {
                     //Take damage after giving damage:
                     int yourHP = YourHP.getValue();
 
+                    LblText.setText("The foe's " + foePokemon.getName() + " used " + actualFoeMove + "!");
                     for (int i = 0; i <= value; i++) {
 
                         System.out.println("Damage received: " + i);
@@ -338,10 +380,13 @@ public class Battle extends javax.swing.JFrame {
                     if (YourHP.getValue() <= (yourHP * 0.3)) {
                         YourHP.setForeground(Color.red);
                     }
+
+                    LblText.setText("What's your next move?");
                 } else {
 
                     //Take damage
                     int yourHP = YourHP.getValue();
+                    LblText.setText("The foe's " + foePokemon.getName() + " used " + actualFoeMove + "!");
 
                     for (int i = 0; i <= value; i++) {
 
@@ -358,6 +403,7 @@ public class Battle extends javax.swing.JFrame {
                         YourHP.setForeground(Color.red);
                     }
 
+                    LblText.setText("Your " + playerPokemon.getName() + " used " + actualMove.getName() + "!");
                     //Give damage
                     for (int i = 0; i <= actualMove.getPower(); i++) {
 
@@ -367,12 +413,13 @@ public class Battle extends javax.swing.JFrame {
                             LblFoeHP.setText((foeHP - i) + "/" + foeHP);
                             Thread.sleep(100);
                         }
+                        checkWinner();
                     }
-                    checkWinner();
 
                     if (FoeHP.getValue() <= (foeHP * 0.3)) {
                         FoeHP.setForeground(Color.red);
                     }
+                    LblText.setText("What's your next move?");
                 }
 
             } catch (InterruptedException ex) {
@@ -394,8 +441,11 @@ public class Battle extends javax.swing.JFrame {
 
         int[] moves = {move1.getPower(), move2.getPower(), move3.getPower(), move4.getPower()};
 
+        String[] allMoves = {move1.getName(), move2.getName(), move3.getName(), move4.getName()};
+
         int index = (int) (Math.random() * (4 - 1 + 1) + 1);
 
+        actualFoeMove = allMoves[index - 1];
         damage = moves[index - 1];
 
         System.out.println(damage);
@@ -413,8 +463,12 @@ public class Battle extends javax.swing.JFrame {
     }//GEN-LAST:event_BtnMove1ActionPerformed
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
-        // TODO add your handling code here:
         FoeHP.setForeground(Color.green);
+
+        BtnMove1.setEnabled(false);
+        BtnMove2.setEnabled(false);
+        BtnMove3.setEnabled(false);
+        BtnMove4.setEnabled(false);
 
         //Set foe HP bar:
         LblFoeHP.setText(String.valueOf(foePokemon.getHp()) + "/" + String.valueOf(foePokemon.getHp()));
@@ -431,6 +485,8 @@ public class Battle extends javax.swing.JFrame {
 
         LblFoeName.setText(foePokemon.getName());
         LblYourName.setText(playerPokemon.getName());
+
+        LblText.setText("A wild " + foePokemon.getName() + " has challenged you!");
 
     }//GEN-LAST:event_formWindowActivated
 
@@ -451,6 +507,24 @@ public class Battle extends javax.swing.JFrame {
         Fight fight = new Fight();
         fight.start();
     }//GEN-LAST:event_BtnMove4ActionPerformed
+
+    private void formMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseClicked
+        index++;
+        switch (index) {
+            case 1:
+                LblText.setText("It looks angry!");
+                break;
+            case 2:
+                LblText.setText("What will you do?");
+                break;
+            case 3:
+                BtnMove1.setEnabled(true);
+                BtnMove2.setEnabled(true);
+                BtnMove3.setEnabled(true);
+                BtnMove4.setEnabled(true);
+                break;
+        }
+    }//GEN-LAST:event_formMouseClicked
 
     /**
      * @param args the command line arguments
@@ -494,14 +568,17 @@ public class Battle extends javax.swing.JFrame {
     private javax.swing.JButton BtnMove3;
     private javax.swing.JButton BtnMove4;
     private javax.swing.JProgressBar FoeHP;
+    private javax.swing.JLabel LblChat;
     public static javax.swing.JLabel LblFoeHP;
     private javax.swing.JLabel LblFoeName;
+    private javax.swing.JLabel LblText;
     private javax.swing.JLabel LblYourName;
     private javax.swing.JLabel PlayerHP;
     public javax.swing.JLabel PokemonChoosed;
     public javax.swing.JLabel PokemonFoe;
     private javax.swing.JProgressBar YourHP;
     public javax.swing.JLabel background;
+    private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 
     private int moves(int index) {

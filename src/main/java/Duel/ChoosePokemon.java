@@ -13,10 +13,7 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.table.DefaultTableModel;
 
-/**
- *
- * @author Leonardo
- */
+
 public class ChoosePokemon extends javax.swing.JFrame {
 
     Color ghost = new Color(51,0,204);
