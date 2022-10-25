@@ -18,12 +18,14 @@ public class Battle extends javax.swing.JFrame {
     Color normal = new Color(102, 102, 102);
     Color electric = new Color(255, 204, 0);
     Color rock = new Color(153, 51, 0);
-
     Color normalText = new Color(204, 204, 204);
     Color white = new Color(255, 255, 255);
+    
     Pokemon playerPokemon;
-
     Pokemon foePokemon;
+    
+    String trainerName;
+    String trainerGender;
 
     Move playerMove1;
     Move playerMove2;
@@ -36,6 +38,7 @@ public class Battle extends javax.swing.JFrame {
     boolean tempo = true;
 
     int index = 0;
+    int roundCount = 0;
 
     public Battle() {
         initComponents();
@@ -314,9 +317,9 @@ public class Battle extends javax.swing.JFrame {
                 PokemonChoosed.setVisible(false);
             }
             System.out.println("You Lose!");
+            Connect.registerBattle(trainerName, trainerGender, playerPokemon.getName(), foePokemon.getName(), "Loss", roundCount);
             dispose();
             System.exit(0);
-            
 
         } else if (FoeHP.getValue() == 0) {
             int wait = index;
@@ -325,7 +328,7 @@ public class Battle extends javax.swing.JFrame {
                 LblText.setText("<html>The foe's " + foePokemon.getName() + " has fainted!<br>This is over! You are the true Pokémon Master!");
                 PokemonFoe.setVisible(false);
             }
-            System.out.println("You Win!");
+            Connect.registerBattle(trainerName, trainerGender, playerPokemon.getName(), foePokemon.getName(), "Win", roundCount);
             dispose();
             System.exit(0);
         }
@@ -345,6 +348,11 @@ public class Battle extends javax.swing.JFrame {
             try {
                 if (playerPokemon.getSpeed() > foePokemon.getSpeed()) {
 
+                    roundCount++;
+                    BtnMove1.setEnabled(false);
+                    BtnMove2.setEnabled(false);
+                    BtnMove3.setEnabled(false);
+                    BtnMove4.setEnabled(false);
                     //Give damage before getting damage:
                     for (int i = 0; i <= actualMove.getPower(); i++) {
 
@@ -380,10 +388,20 @@ public class Battle extends javax.swing.JFrame {
                     if (YourHP.getValue() <= (yourHP * 0.3)) {
                         YourHP.setForeground(Color.red);
                     }
+                    BtnMove1.setEnabled(true);
+                    BtnMove2.setEnabled(true);
+                    BtnMove3.setEnabled(true);
+                    BtnMove4.setEnabled(true);
 
+                    
                     LblText.setText("What's your next move?");
                 } else {
 
+                    roundCount++;
+                    BtnMove1.setEnabled(false);
+                    BtnMove2.setEnabled(false);
+                    BtnMove3.setEnabled(false);
+                    BtnMove4.setEnabled(false);
                     //Take damage
                     int yourHP = YourHP.getValue();
                     LblText.setText("The foe's " + foePokemon.getName() + " used " + actualFoeMove + "!");
@@ -419,6 +437,11 @@ public class Battle extends javax.swing.JFrame {
                     if (FoeHP.getValue() <= (foeHP * 0.3)) {
                         FoeHP.setForeground(Color.red);
                     }
+                    BtnMove1.setEnabled(true);
+                    BtnMove2.setEnabled(true);
+                    BtnMove3.setEnabled(true);
+                    BtnMove4.setEnabled(true);
+                    
                     LblText.setText("What's your next move?");
                 }
 

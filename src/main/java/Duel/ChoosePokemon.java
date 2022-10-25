@@ -28,6 +28,9 @@ public class ChoosePokemon extends javax.swing.JFrame {
     Pokemon pokemon;
     ImageIcon icon;
     
+    String trainerName;
+    String trainerGender;
+    
     public ChoosePokemon() {
         initComponents();
         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
@@ -362,7 +365,8 @@ public class ChoosePokemon extends javax.swing.JFrame {
         
         
         
-        
+        battleForm.trainerName = this.trainerName;
+        battleForm.trainerGender = this.trainerGender;
         battleForm.setVisible(true);
         dispose();
 

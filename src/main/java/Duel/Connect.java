@@ -400,4 +400,26 @@ public class Connect {
         }
         return accuracy;
     }
+    
+    public static void registerBattle(String name, String gender, String pokemonUsed, String pokemonFoe, String outcome, int rounds) {
+        try ( MongoClient mongo = new MongoClient("localhost", 27017);) {
+            MongoDatabase database = mongo.getDatabase("pokeduel");
+            MongoCollection<Document> collection = database.getCollection("trainer");
+            try {
+                Document doc = new Document();
+                doc.put("Name", name);
+                doc.put("Gender", gender);
+                doc.put("Pokémon", pokemonUsed);
+                doc.put("Foe", pokemonFoe);
+                doc.put("Outcome", outcome);
+                doc.put("Rounds", rounds);
+
+                collection.insertOne(doc);
+
+            } catch (MongoException me) {
+                System.err.println("An error occurred: " + me);
+            }
+
+        }
+    }
 }

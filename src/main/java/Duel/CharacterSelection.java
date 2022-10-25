@@ -187,6 +187,8 @@ public class CharacterSelection extends javax.swing.JFrame {
                 break;
             case -5:
                 ChoosePokemon choosePokemon = new ChoosePokemon();
+                choosePokemon.trainerName = TxtName.getText();
+                choosePokemon.trainerGender = gender;
                 choosePokemon.setVisible(true);
                 dispose();
                 break;
