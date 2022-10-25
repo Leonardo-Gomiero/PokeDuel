@@ -125,7 +125,7 @@ public class CharacterSelection extends javax.swing.JFrame {
         LblBackground.setIcon(new javax.swing.ImageIcon("C:\\Users\\Leonardo\\Documents\\Java\\PokeDuel\\src\\main\\resources\\Images\\greetingsWallpaper.png")); // NOI18N
         jPanel1.add(LblBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1040, 710));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1040, 720));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1040, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -153,7 +153,7 @@ public class CharacterSelection extends javax.swing.JFrame {
                 LblText.setText("<html>My name is Rowan! However, everyone just call<br>me the Pokémon Professor.");
                 break;
             case 4:
-                LblText.setText("This world is widely inhabited by creates known as Pokémon.");
+                LblText.setText("<html>This world is widely inhabited by creatures known<br>as Pokémon.");
                 break;
             case 5:
                 LblText.setText("I conduct research so that we may learn more about Pokémon.");

@@ -67,6 +67,7 @@ public class ChoosePokemon extends javax.swing.JFrame {
     private void initComponents() {
 
         Background = new javax.swing.JPanel();
+        jLabel7 = new javax.swing.JLabel();
         LblPokedex = new javax.swing.JLabel();
         LblName = new javax.swing.JLabel();
         ImgReshiram = new javax.swing.JLabel();
@@ -75,7 +76,6 @@ public class ChoosePokemon extends javax.swing.JFrame {
         ImgArceus = new javax.swing.JLabel();
         ImgGiratina = new javax.swing.JLabel();
         LblPokemonChoosed = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
         BtnPlay = new javax.swing.JButton();
         SelectionBar = new javax.swing.JLabel();
         Type2 = new javax.swing.JButton();
@@ -94,6 +94,9 @@ public class ChoosePokemon extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         Background.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel7.setIcon(new javax.swing.ImageIcon("C:\\Users\\Leonardo\\Documents\\Java\\PokeDuel\\src\\main\\resources\\Images\\ability.png")); // NOI18N
+        Background.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 350, -1, 70));
 
         LblPokedex.setFont(new java.awt.Font("Segoe UI", 3, 48)); // NOI18N
         LblPokedex.setForeground(new java.awt.Color(255, 255, 255));
@@ -156,13 +159,10 @@ public class ChoosePokemon extends javax.swing.JFrame {
         LblPokemonChoosed.setIcon(new javax.swing.ImageIcon("C:\\Users\\Leonardo\\Documents\\Java\\PokeDuel\\src\\main\\resources\\Images\\Giratina.png")); // NOI18N
         Background.add(LblPokemonChoosed, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 490, -1));
 
-        jLabel7.setIcon(new javax.swing.ImageIcon("C:\\Users\\Leonardo\\Documents\\Java\\PokeDuel\\src\\main\\resources\\Images\\ability.png")); // NOI18N
-        Background.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 350, -1, 70));
-
-        BtnPlay.setBackground(new java.awt.Color(51, 255, 51));
+        BtnPlay.setBackground(new java.awt.Color(0, 0, 153));
         BtnPlay.setFont(new java.awt.Font("Yu Gothic Medium", 3, 18)); // NOI18N
-        BtnPlay.setForeground(new java.awt.Color(0, 0, 0));
-        BtnPlay.setText("PLAY");
+        BtnPlay.setForeground(new java.awt.Color(255, 255, 255));
+        BtnPlay.setText("LET'S GO");
         BtnPlay.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 BtnPlayMouseClicked(evt);
@@ -176,7 +176,7 @@ public class ChoosePokemon extends javax.swing.JFrame {
                 BtnPlayActionPerformed(evt);
             }
         });
-        Background.add(BtnPlay, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 650, 140, 50));
+        Background.add(BtnPlay, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 660, 1040, 60));
 
         SelectionBar.setIcon(new javax.swing.ImageIcon("C:\\Users\\Leonardo\\Documents\\Java\\PokeDuel\\src\\main\\resources\\Images\\menuBar.png")); // NOI18N
         Background.add(SelectionBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 420, 1040, 310));
@@ -346,8 +346,6 @@ public class ChoosePokemon extends javax.swing.JFrame {
         Battle battleForm = new Battle();
         battleForm.playerPokemon = this.pokemon;
         battleForm.foePokemon = randomizeFoe();
-        
-        
         
         //Define the images used in the battle
         ImageIcon foeIcon = new ImageIcon("C:/Users/Leonardo/Documents/Java/PokeDuel/src/main/resources/Images/" + battleForm.foePokemon.getName() + ".png");

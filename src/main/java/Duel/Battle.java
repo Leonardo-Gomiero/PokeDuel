@@ -30,17 +30,9 @@ public class Battle extends javax.swing.JFrame {
     Move playerMove3;
     Move playerMove4;
 
-    Thread t = new Thread(new Runnable() {
-        public void run() {
+    Move actualMove;
 
-            try {
-                Thread.sleep(100);
-            } catch (InterruptedException ex) {
-                Logger.getLogger(Battle.class.getName()).log(Level.SEVERE, null, ex);
-            }
-
-        }
-    });
+    boolean tempo = true;
 
     public Battle() {
         initComponents();
@@ -59,6 +51,8 @@ public class Battle extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        LblYourName = new javax.swing.JLabel();
+        LblFoeName = new javax.swing.JLabel();
         PlayerHP = new javax.swing.JLabel();
         LblFoeHP = new javax.swing.JLabel();
         FoeHP = new javax.swing.JProgressBar();
@@ -79,6 +73,16 @@ public class Battle extends javax.swing.JFrame {
             }
         });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        LblYourName.setFont(new java.awt.Font("Arial", 1, 48)); // NOI18N
+        LblYourName.setForeground(new java.awt.Color(255, 255, 255));
+        LblYourName.setText("Giratina");
+        getContentPane().add(LblYourName, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 330, 400, 50));
+
+        LblFoeName.setFont(new java.awt.Font("Arial", 1, 48)); // NOI18N
+        LblFoeName.setForeground(new java.awt.Color(255, 255, 255));
+        LblFoeName.setText("Giratina");
+        getContentPane().add(LblFoeName, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 32, 400, 50));
 
         PlayerHP.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         PlayerHP.setForeground(new java.awt.Color(0, 0, 0));
@@ -279,12 +283,46 @@ public class Battle extends javax.swing.JFrame {
 
     public void checkWinner() {
         if (YourHP.getValue() == 0) {
-            System.out.println("You Win!");
-            dispose();
-        } else if (FoeHP.getValue() == 0) {
             System.out.println("You Lose!");
             dispose();
+        } else if (FoeHP.getValue() == 0) {
+            System.out.println("You Win!");
+            dispose();
         }
+    }
+
+    public class getNiceDamage extends Thread {
+
+        int yourHP = YourHP.getValue();
+        int value = defineDamage();
+
+        @Override
+        public void run() {
+
+            try {
+                int yourHP = YourHP.getValue();
+
+                for (int i = 0; i <= value; i++) {
+
+                    System.out.println("Damage received: " + i);
+                    if ((yourHP - i) >= 0) {
+                        YourHP.setValue(yourHP - i);
+                        PlayerHP.setText((yourHP - i) + "/" + yourHP);
+                    }
+
+                    Thread.sleep(100);
+                }
+                checkWinner();
+                if (YourHP.getValue() <= (yourHP * 0.3)) {
+                    YourHP.setForeground(Color.red);
+                }
+
+            } catch (InterruptedException ex) {
+                Logger.getLogger(Battle.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+        }
+
     }
 
     public void getDamage(int value) throws InterruptedException {
@@ -307,6 +345,39 @@ public class Battle extends javax.swing.JFrame {
 
     }
 
+    public class giveNiceDamage extends Thread {
+
+        int foeHP = FoeHP.getValue();
+
+        String foeHpValue = LblFoeHP.getText();
+
+        @Override
+        public void run() {
+
+            try {
+                for (int i = 0; i <= actualMove.getPower(); i++) {
+
+                    System.out.println("Damage given: " + i);
+                    if ((foeHP - i) >= 0) {
+                        FoeHP.setValue(foeHP - i);
+                        LblFoeHP.setText((foeHP - i) + "/" + foeHP);
+                        Thread.sleep(100);
+                    }
+                }
+                checkWinner();
+
+                if (FoeHP.getValue() <= (foeHP * 0.3)) {
+                    FoeHP.setForeground(Color.red);
+                }
+
+            } catch (InterruptedException ex) {
+                Logger.getLogger(Battle.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+        }
+
+    }
+
     public void giveDamage(int value) throws InterruptedException {
 
         int foeHP = FoeHP.getValue();
@@ -323,6 +394,7 @@ public class Battle extends javax.swing.JFrame {
             if ((foeHP - i) >= 0) {
                 FoeHP.setValue(foeHP - i);
                 LblFoeHP.setText((foeHP - i) + "/" + foeHP);
+
             }
         }
         checkWinner();
@@ -355,16 +427,25 @@ public class Battle extends javax.swing.JFrame {
 
     public void fight(Move movePlayer, int damageTaken) throws InterruptedException {
         if (playerPokemon.getSpeed() > foePokemon.getSpeed()) {
-            giveDamage(playerMove1.getPower());
-            getDamage(damageTaken);
+            giveDamage(movePlayer.getPower() / 2);
+            giveNiceDamage hit = new giveNiceDamage();
+            hit.start();
+
+            getNiceDamage damage = new getNiceDamage();
+            damage.start();
         } else {
-            getDamage(damageTaken);
-            giveDamage(playerMove1.getPower());
+            getNiceDamage damage = new getNiceDamage();
+            damage.start();
+
+            //giveDamage(movePlayer.getPower());
+            giveNiceDamage hit = new giveNiceDamage();
+            hit.start();
         }
     }
 
     private void BtnMove1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnMove1ActionPerformed
         try {
+            actualMove = playerMove1;
             fight(playerMove1, defineDamage());
         } catch (InterruptedException ex) {
             Logger.getLogger(Battle.class.getName()).log(Level.SEVERE, null, ex);
@@ -390,10 +471,14 @@ public class Battle extends javax.swing.JFrame {
         defineMove(playerMove3, 3);
         defineMove(playerMove4, 4);
 
+        LblFoeName.setText(foePokemon.getName());
+        LblYourName.setText(playerPokemon.getName());
+
     }//GEN-LAST:event_formWindowActivated
 
     private void BtnMove2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnMove2ActionPerformed
         try {
+            actualMove = playerMove2;
             fight(playerMove2, defineDamage());
         } catch (InterruptedException ex) {
             Logger.getLogger(Battle.class.getName()).log(Level.SEVERE, null, ex);
@@ -402,6 +487,7 @@ public class Battle extends javax.swing.JFrame {
 
     private void BtnMove3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnMove3ActionPerformed
         try {
+            actualMove = playerMove3;
             fight(playerMove3, defineDamage());
         } catch (InterruptedException ex) {
             Logger.getLogger(Battle.class.getName()).log(Level.SEVERE, null, ex);
@@ -410,6 +496,7 @@ public class Battle extends javax.swing.JFrame {
 
     private void BtnMove4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnMove4ActionPerformed
         try {
+            actualMove = playerMove4;
             fight(playerMove4, defineDamage());
         } catch (InterruptedException ex) {
             Logger.getLogger(Battle.class.getName()).log(Level.SEVERE, null, ex);
@@ -459,6 +546,8 @@ public class Battle extends javax.swing.JFrame {
     private javax.swing.JButton BtnMove4;
     private javax.swing.JProgressBar FoeHP;
     public static javax.swing.JLabel LblFoeHP;
+    private javax.swing.JLabel LblFoeName;
+    private javax.swing.JLabel LblYourName;
     private javax.swing.JLabel PlayerHP;
     public javax.swing.JLabel PokemonChoosed;
     public javax.swing.JLabel PokemonFoe;
