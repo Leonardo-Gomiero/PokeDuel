@@ -318,8 +318,12 @@ public class Battle extends javax.swing.JFrame {
             }
             System.out.println("You Lose!");
             Connect.registerBattle(trainerName, trainerGender, playerPokemon.getName(), foePokemon.getName(), "Loss", roundCount);
+            
+            HallOfShame hallOfShame = new HallOfShame();
+            hallOfShame.pokemonFoe = foePokemon;
+            hallOfShame.setVisible(true);
+            
             dispose();
-            System.exit(0);
 
         } else if (FoeHP.getValue() == 0) {
             int wait = index;
@@ -329,8 +333,14 @@ public class Battle extends javax.swing.JFrame {
                 PokemonFoe.setVisible(false);
             }
             Connect.registerBattle(trainerName, trainerGender, playerPokemon.getName(), foePokemon.getName(), "Win", roundCount);
+            
+            HallOfFame hallOfFame = new HallOfFame();
+            hallOfFame.playerName = trainerName;
+            hallOfFame.pokemonName = playerPokemon.getName();
+            hallOfFame.gender = trainerGender;
+            hallOfFame.setVisible(true);
+            
             dispose();
-            System.exit(0);
         }
     }
 
@@ -353,6 +363,7 @@ public class Battle extends javax.swing.JFrame {
                     BtnMove2.setEnabled(false);
                     BtnMove3.setEnabled(false);
                     BtnMove4.setEnabled(false);
+                    
                     //Give damage before getting damage:
                     for (int i = 0; i <= actualMove.getPower(); i++) {
 
@@ -402,6 +413,7 @@ public class Battle extends javax.swing.JFrame {
                     BtnMove2.setEnabled(false);
                     BtnMove3.setEnabled(false);
                     BtnMove4.setEnabled(false);
+                    
                     //Take damage
                     int yourHP = YourHP.getValue();
                     LblText.setText("The foe's " + foePokemon.getName() + " used " + actualFoeMove + "!");
