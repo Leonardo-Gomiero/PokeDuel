@@ -84,6 +84,9 @@ public class HallOfFame extends javax.swing.JFrame {
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
 
+        icon = new ImageIcon(System.getProperties().getProperty("user.dir") + "/src/main/resources/Images/chatBox.png");
+        LblChat.setIcon(icon);
+        
         icon = new ImageIcon(System.getProperties().getProperty("user.dir") + "/src/main/resources/Images/hallOfFame.png");
         LblBackground.setIcon(icon);
 

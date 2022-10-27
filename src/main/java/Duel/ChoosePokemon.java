@@ -381,6 +381,21 @@ public class ChoosePokemon extends javax.swing.JFrame {
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
         //All labels structures:
 
+        icon = new ImageIcon(System.getProperties().getProperty("user.dir") + "/src/main/resources/Images/ReshiramPokeBall.png");
+        ImgReshiram.setIcon(icon);
+        
+        icon = new ImageIcon(System.getProperties().getProperty("user.dir") + "/src/main/resources/Images/GiratinaPokeBall.png");
+        ImgGiratina.setIcon(icon);
+        
+        icon = new ImageIcon(System.getProperties().getProperty("user.dir") + "/src/main/resources/Images/RayquazaPokeBall.png");
+        ImgRayquaza.setIcon(icon);
+        
+        icon = new ImageIcon(System.getProperties().getProperty("user.dir") + "/src/main/resources/Images/ArceusPokeBall.png");
+        ImgArceus.setIcon(icon);
+        
+        icon = new ImageIcon(System.getProperties().getProperty("user.dir") + "/src/main/resources/Images/ElectivirePokeBall.png");
+        ImgElectivire.setIcon(icon);
+        
         icon = new ImageIcon(System.getProperties().getProperty("user.dir") + "/src/main/resources/Images/menuBar.png");
         SelectionBar.setIcon(icon);
         
@@ -389,10 +404,11 @@ public class ChoosePokemon extends javax.swing.JFrame {
         
         icon = new ImageIcon(System.getProperties().getProperty("user.dir") + "/src/main/resources/Images/ability.png");
         LblFormAbility.setIcon(icon);
-
         
         icon = new ImageIcon(System.getProperties().getProperty("user.dir") + "/src/main/resources/Images/Giratina.png");
         LblPokemonChoosed.setIcon(icon);
+        
+        
         pokemon = Connect.Pokemon(487);
         loadStats(pokemon);
         BtnPlay.setEnabled(true);
