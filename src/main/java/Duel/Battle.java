@@ -8,6 +8,7 @@ import static java.lang.Thread.sleep;
 import java.net.URL;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.ImageIcon;
 
 public class Battle extends javax.swing.JFrame {
 
@@ -18,6 +19,7 @@ public class Battle extends javax.swing.JFrame {
     Color normal = new Color(102, 102, 102);
     Color electric = new Color(255, 204, 0);
     Color rock = new Color(153, 51, 0);
+    Color psychic = new Color(255, 27, 224);
     Color normalText = new Color(204, 204, 204);
     Color white = new Color(255, 255, 255);
     
@@ -39,6 +41,8 @@ public class Battle extends javax.swing.JFrame {
 
     int index = 0;
     int roundCount = 0;
+    
+    ImageIcon icon;
 
     public Battle() {
         initComponents();
@@ -114,6 +118,7 @@ public class Battle extends javax.swing.JFrame {
         FoeHP.setForeground(new java.awt.Color(102, 255, 102));
         FoeHP.setMaximum(150);
         FoeHP.setValue(150);
+        FoeHP.setFocusable(false);
         getContentPane().add(FoeHP, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 90, 400, 20));
 
         YourHP.setBackground(new java.awt.Color(102, 255, 102));
@@ -223,6 +228,9 @@ public class Battle extends javax.swing.JFrame {
                 case "Rock":
                     BtnMove1.setBackground(rock);
                     break;
+                case "Psychic":
+                    BtnMove1.setBackground(psychic);
+                    break;
             }
 
             BtnMove1.setText(move.getName());
@@ -248,6 +256,9 @@ public class Battle extends javax.swing.JFrame {
                     break;
                 case "Rock":
                     BtnMove2.setBackground(rock);
+                    break;
+                case "Psychic":
+                    BtnMove2.setBackground(psychic);
                     break;
             }
 
@@ -275,6 +286,9 @@ public class Battle extends javax.swing.JFrame {
                 case "Rock":
                     BtnMove3.setBackground(rock);
                     break;
+                case "Psychic":
+                    BtnMove3.setBackground(psychic);
+                    break;
             }
 
             BtnMove3.setText(move.getName());
@@ -300,6 +314,9 @@ public class Battle extends javax.swing.JFrame {
                     break;
                 case "Rock":
                     BtnMove4.setBackground(rock);
+                    break;
+                case "Psychic":
+                    BtnMove4.setBackground(psychic);
                     break;
             }
 
@@ -498,7 +515,12 @@ public class Battle extends javax.swing.JFrame {
     }//GEN-LAST:event_BtnMove1ActionPerformed
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
+        //Setting all the icons
+        icon = new ImageIcon(System.getProperties().getProperty("user.dir") + "/src/main/resources/Images/chatBox.png");
+        LblChat.setIcon(icon);
+        
         FoeHP.setForeground(Color.green);
+        YourHP.setForeground(Color.green);
 
         BtnMove1.setEnabled(false);
         BtnMove2.setEnabled(false);

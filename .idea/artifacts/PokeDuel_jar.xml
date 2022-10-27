@@ -1,0 +1,12 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="PokeDuel:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/PokeDuel_jar</output-path>
+    <root id="archive" name="PokeDuel.jar">
+      <element id="module-output" name="PokeDuel" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/netbeans/external/AbsoluteLayout/RELEASE140/AbsoluteLayout-RELEASE140.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/mongodb/mongodb-driver/3.12.11/mongodb-driver-3.12.11.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/mongodb/bson/3.12.11/bson-3.12.11.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/mongodb/mongodb-driver-core/3.12.11/mongodb-driver-core-3.12.11.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>

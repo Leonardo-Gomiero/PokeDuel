@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package Duel;
 
 import java.awt.Dimension;
@@ -10,10 +6,7 @@ import java.awt.Toolkit;
 import java.net.URL;
 import javax.swing.ImageIcon;
 
-/**
- *
- * @author Leonardo
- */
+
 public class CharacterSelection extends javax.swing.JFrame {
 
     int index = 0;
@@ -21,7 +14,7 @@ public class CharacterSelection extends javax.swing.JFrame {
     boolean male = false;
     boolean female = false;
     String gender = "";
-
+    ImageIcon icon;
     
     public CharacterSelection() {
         initComponents();
@@ -198,6 +191,23 @@ public class CharacterSelection extends javax.swing.JFrame {
     }//GEN-LAST:event_formMouseClicked
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
+
+        icon = new ImageIcon(System.getProperties().getProperty("user.dir") + "/src/main/resources/Images/chatBox.png");
+        LblChat.setIcon(icon);
+        
+        icon = new ImageIcon(System.getProperties().getProperty("user.dir") + "/src/main/resources/Images/professorRowan.png");
+        LblRowan.setIcon(icon);
+        
+        icon = new ImageIcon(System.getProperties().getProperty("user.dir") + "/src/main/resources/Images/dawnTranslucid.png");
+        LblDawn.setIcon(icon);
+        
+        icon = new ImageIcon(System.getProperties().getProperty("user.dir") + "/src/main/resources/Images/lucasTranslucid.png");
+        LblLucas.setIcon(icon);
+        
+        icon = new ImageIcon(System.getProperties().getProperty("user.dir") + "/src/main/resources/Images/greetingsWallpaper.png");
+        LblBackground.setIcon(icon);
+
+        
         LblBackground.setVisible(false);
         LblRowan.setVisible(false);
         LblDawn.setVisible(false);
@@ -207,28 +217,28 @@ public class CharacterSelection extends javax.swing.JFrame {
 
     private void LblDawnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LblDawnMouseEntered
         if (!statusSelect) {
-            ImageIcon icon = new ImageIcon("C:/Users/Leonardo/Documents/Java/PokeDuel/src/main/resources/Images/dawnSolid.png");
+            ImageIcon icon = new ImageIcon(System.getProperties().getProperty("user.dir") + "/src/main/resources/Images/dawnSolid.png");
             LblDawn.setIcon(icon);
         }
     }//GEN-LAST:event_LblDawnMouseEntered
 
     private void LblDawnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LblDawnMouseExited
         if(!statusSelect){
-            ImageIcon icon = new ImageIcon("C:/Users/Leonardo/Documents/Java/PokeDuel/src/main/resources/Images/dawnTranslucid.png");
+            ImageIcon icon = new ImageIcon(System.getProperties().getProperty("user.dir") + "/src/main/resources/Images/dawnTranslucid.png");
             LblDawn.setIcon(icon);
         }
     }//GEN-LAST:event_LblDawnMouseExited
 
     private void LblLucasMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LblLucasMouseEntered
         if(!statusSelect){
-            ImageIcon icon = new ImageIcon("C:/Users/Leonardo/Documents/Java/PokeDuel/src/main/resources/Images/lucasSolid.png");
+            ImageIcon icon = new ImageIcon(System.getProperties().getProperty("user.dir") + "/src/main/resources/Images/lucasSolid.png");
             LblLucas.setIcon(icon);
         }
     }//GEN-LAST:event_LblLucasMouseEntered
 
     private void LblLucasMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LblLucasMouseExited
         if(!statusSelect){
-            ImageIcon icon = new ImageIcon("C:/Users/Leonardo/Documents/Java/PokeDuel/src/main/resources/Images/lucasTranslucid.png");
+            ImageIcon icon = new ImageIcon(System.getProperties().getProperty("user.dir") + "/src/main/resources/Images/lucasTranslucid.png");
             LblLucas.setIcon(icon);
         }
     }//GEN-LAST:event_LblLucasMouseExited
@@ -238,10 +248,10 @@ public class CharacterSelection extends javax.swing.JFrame {
         female = true;
         male = false;
         
-        ImageIcon icon = new ImageIcon("C:/Users/Leonardo/Documents/Java/PokeDuel/src/main/resources/Images/dawnSolid.png");
+        ImageIcon icon = new ImageIcon(System.getProperties().getProperty("user.dir") + "/src/main/resources/Images/dawnSolid.png");
         LblDawn.setIcon(icon);
 
-        icon = new ImageIcon("C:/Users/Leonardo/Documents/Java/PokeDuel/src/main/resources/Images/lucasTranslucid.png");
+        icon = new ImageIcon(System.getProperties().getProperty("user.dir") + "/src/main/resources/Images/lucasTranslucid.png");
         LblLucas.setIcon(icon);
         gender = "girl";
         index = 0;
@@ -252,10 +262,10 @@ public class CharacterSelection extends javax.swing.JFrame {
         female = false;
         male = true;
         
-        ImageIcon icon = new ImageIcon("C:/Users/Leonardo/Documents/Java/PokeDuel/src/main/resources/Images/dawnTranslucid.png");
+        ImageIcon icon = new ImageIcon(System.getProperties().getProperty("user.dir") + "/src/main/resources/Images/dawnTranslucid.png");
         LblDawn.setIcon(icon);
 
-        icon = new ImageIcon("C:/Users/Leonardo/Documents/Java/PokeDuel/src/main/resources/Images/lucasSolid.png");
+        icon = new ImageIcon(System.getProperties().getProperty("user.dir") + "/src/main/resources/Images/lucasSolid.png");
         LblLucas.setIcon(icon);
         gender = "boy";
         index = 0;

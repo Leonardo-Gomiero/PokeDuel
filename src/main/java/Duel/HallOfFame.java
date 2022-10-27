@@ -20,6 +20,8 @@ public class HallOfFame extends javax.swing.JFrame {
     ImageIcon playerIcon;
     ImageIcon pokemonIcon;
     
+    ImageIcon icon;
+    
     public HallOfFame() {
         initComponents();
         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
@@ -81,13 +83,17 @@ public class HallOfFame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
+
+        icon = new ImageIcon(System.getProperties().getProperty("user.dir") + "/src/main/resources/Images/hallOfFame.png");
+        LblBackground.setIcon(icon);
+
         if(gender.equals("boy")){
-            playerIcon = new ImageIcon("C:/Users/Leonardo/Documents/Java/PokeDuel/src/main/resources/Images/lucasSolid.png");
+            playerIcon = new ImageIcon(System.getProperties().getProperty("user.dir") + "/src/main/resources/Images/lucasSolid.png");
         }else{
-            playerIcon = new ImageIcon("C:/Users/Leonardo/Documents/Java/PokeDuel/src/main/resources/Images/dawnSolid.png");
+            playerIcon = new ImageIcon(System.getProperties().getProperty("user.dir") + "/src/main/resources/Images/dawnSolid.png");
         }
         
-        pokemonIcon = new ImageIcon("C:/Users/Leonardo/Documents/Java/PokeDuel/src/main/resources/Images/" + pokemonName + ".png");
+        pokemonIcon = new ImageIcon(System.getProperties().getProperty("user.dir") + "/src/main/resources/Images/" + pokemonName + ".png");
         
         LblPlayer.setIcon(playerIcon);
         LblPokemon.setIcon(pokemonIcon);
