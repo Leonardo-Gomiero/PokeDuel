@@ -345,12 +345,12 @@ public class ChoosePokemon extends javax.swing.JFrame {
         battleForm.foePokemon = randomizeFoe();
         
         //Define the images used in the battle
-        ImageIcon foeIcon = new ImageIcon(System.getProperties().getProperty("user.dir") + "/src/main/resources/Images/" + battleForm.foePokemon.getName() + ".png");
+        ImageIcon foeIcon = new ImageIcon(System.getProperties().getProperty("user.dir") + "/src/main/resources/Gifs/" + battleForm.foePokemon.getName() + ".gif");
         battleForm.PokemonFoe.setIcon(foeIcon);
         ImageIcon backgroundIcon = new ImageIcon(System.getProperties().getProperty("user.dir") + "/src/main/resources/Images/scenario" + battleForm.foePokemon.getName() + ".png");
         
         battleForm.background.setIcon(backgroundIcon);
-        ImageIcon playerIcon = new ImageIcon(System.getProperties().getProperty("user.dir") + "/src/main/resources/Images/back" + battleForm.playerPokemon.getName() + ".png");
+        ImageIcon playerIcon = new ImageIcon(System.getProperties().getProperty("user.dir") + "/src/main/resources/Gifs/back" + battleForm.playerPokemon.getName() + ".gif");
         battleForm.PokemonChoosed.setIcon(playerIcon);
         
         
