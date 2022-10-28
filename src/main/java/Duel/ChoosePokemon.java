@@ -515,6 +515,8 @@ public class ChoosePokemon extends javax.swing.JFrame {
         battleForm.trainerName = this.trainerName;
         battleForm.trainerGender = this.trainerGender;
         battleForm.setVisible(true);
+        
+        System.out.println("Tela escolher Pkmn: " + this.trainerGender);
         dispose();
 
     }//GEN-LAST:event_BtnPlayActionPerformed

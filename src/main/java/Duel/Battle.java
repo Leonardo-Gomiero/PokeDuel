@@ -329,6 +329,7 @@ public class Battle extends javax.swing.JFrame {
     public void checkWinner() {
         if (YourHP.getValue() == 0) {
             int wait = index;
+            System.out.println("Batalha: " + this.trainerGender);
 
             while (wait == index) {
                 LblText.setText("<html>Your " + playerPokemon.getName() + " has fainted!<br>This is it...");
@@ -337,23 +338,31 @@ public class Battle extends javax.swing.JFrame {
             System.out.println("You Lose!");
             Connect.registerBattle(trainerName, trainerGender, playerPokemon.getName(), foePokemon.getName(), "Loss", roundCount);
 
+            //foePokemon.showInfo();
+            
             HallOfShame hallOfShame = new HallOfShame();
             hallOfShame.pokemonFoe = foePokemon;
+            hallOfShame.pokemonFoe.showInfo();
             hallOfShame.setVisible(true);
+            
+            System.out.println("Batalha: " + this.trainerGender);
 
             dispose();
 
         } else if (FoeHP.getValue() == 0) {
             int wait = index;
-
+            System.out.println("Batalha: " + this.trainerGender);
             while (wait == index) {
                 LblText.setText("<html>The foe's " + foePokemon.getName() + " has fainted!<br>This is over! You are the true Pokémon Master!");
                 PokemonFoe.setVisible(false);
             }
             Connect.registerBattle(trainerName, trainerGender, playerPokemon.getName(), foePokemon.getName(), "Win", roundCount);
 
+            //playerPokemon.showInfo();
+            
             HallOfFame hallOfFame = new HallOfFame();
             hallOfFame.playerName = trainerName;
+            System.out.println(hallOfFame.playerName);
             hallOfFame.pokemonName = playerPokemon.getName();
             hallOfFame.gender = trainerGender;
             hallOfFame.setVisible(true);
@@ -477,6 +486,7 @@ public class Battle extends javax.swing.JFrame {
             } catch (InterruptedException ex) {
                 Logger.getLogger(Battle.class.getName()).log(Level.SEVERE, null, ex);
             }
+            
 
         }
 

@@ -193,6 +193,7 @@ public class CharacterSelection extends javax.swing.JFrame {
                 choosePokemon.trainerName = TxtName.getText();
                 choosePokemon.trainerGender = gender;
                 choosePokemon.setVisible(true);
+                System.out.println("Tela intro: " + gender);
                 dispose();
                 break;
                 

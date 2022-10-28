@@ -6,41 +6,31 @@ import java.awt.Toolkit;
 import java.net.URL;
 import javax.swing.ImageIcon;
 
-
 public class HallOfShame extends javax.swing.JFrame {
 
     Pokemon pokemonFoe;
-    
+
     ImageIcon backgroundIcon;
     ImageIcon pokemonIcon;
-    
+
     ImageIcon icon;
-    
+
     public HallOfShame() {
         initComponents();
-        
+
         icon = new ImageIcon(System.getProperties().getProperty("user.dir") + "/src/main/resources/Images/chatBox.png");
         LblChat.setIcon(icon);
-        
-        pokemonIcon = new ImageIcon(System.getProperties().getProperty("user.dir") + "/src/main/resources/Gifs/" + pokemonFoe.getName() + ".gif");
-        LblPokemon.setIcon(pokemonIcon);        
-        
-        backgroundIcon = new ImageIcon(System.getProperties().getProperty("user.dir") + "/src/main/resources/Images/scenario" + pokemonFoe.getName() + ".png");
-        LblBackground.setIcon(backgroundIcon);
 
-        LblText.setText("<html>" + pokemonFoe.getName() + " won this time... But don't give up!<br>It's not about winning, it's about fighting!");
-        
         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
         this.setLocation(dim.width / 2 - this.getSize().width / 2, dim.height / 2 - this.getSize().height / 2);
-        
+
         URL url = this.getClass().getResource("/Images/pokeduel.png");
         Image imgTitulo = Toolkit.getDefaultToolkit().getImage(url);
         setIconImage(imgTitulo);
-        
+
         setResizable(false);
     }
 
-   
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -84,22 +74,28 @@ public class HallOfShame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
+        pokemonIcon = new ImageIcon(System.getProperties().getProperty("user.dir") + "/src/main/resources/Images/" + pokemonFoe.getName() + ".png");
+        LblPokemon.setIcon(pokemonIcon);
 
-        
+        backgroundIcon = new ImageIcon(System.getProperties().getProperty("user.dir") + "/src/main/resources/Images/scenario" + pokemonFoe.getName() + ".png");
+        LblBackground.setIcon(backgroundIcon);
+
+        LblText.setText("<html>" + pokemonFoe.getName() + " won this time... But don't give up!<br>It's not about winning, it's about fighting!");
+
     }//GEN-LAST:event_formWindowActivated
 
     private void formMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseClicked
-        
+
         dispose();
         System.exit(0);
-        
+
     }//GEN-LAST:event_formMouseClicked
 
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        
+
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new HallOfShame().setVisible(true);
