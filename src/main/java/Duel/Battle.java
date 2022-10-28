@@ -61,10 +61,10 @@ public class Battle extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        LblFoeHP = new javax.swing.JLabel();
         LblYourName = new javax.swing.JLabel();
         LblFoeName = new javax.swing.JLabel();
         PlayerHP = new javax.swing.JLabel();
-        LblFoeHP = new javax.swing.JLabel();
         FoeHP = new javax.swing.JProgressBar();
         YourHP = new javax.swing.JProgressBar();
         BtnMove1 = new javax.swing.JButton();
@@ -92,6 +92,12 @@ public class Battle extends javax.swing.JFrame {
         });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        LblFoeHP.setFont(new java.awt.Font("Bahnschrift", 0, 14)); // NOI18N
+        LblFoeHP.setForeground(new java.awt.Color(0, 0, 0));
+        LblFoeHP.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        LblFoeHP.setText("150/150");
+        getContentPane().add(LblFoeHP, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 90, 60, 20));
+
         LblYourName.setFont(new java.awt.Font("Bahnschrift", 1, 48)); // NOI18N
         LblYourName.setForeground(new java.awt.Color(255, 255, 255));
         LblYourName.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
@@ -109,20 +115,14 @@ public class Battle extends javax.swing.JFrame {
         PlayerHP.setText("150/150");
         getContentPane().add(PlayerHP, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 400, 60, 20));
 
-        LblFoeHP.setFont(new java.awt.Font("Bahnschrift", 0, 14)); // NOI18N
-        LblFoeHP.setForeground(new java.awt.Color(0, 0, 0));
-        LblFoeHP.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        LblFoeHP.setText("150/150");
-        getContentPane().add(LblFoeHP, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 90, 60, 20));
-
-        FoeHP.setBackground(new java.awt.Color(102, 255, 102));
+        FoeHP.setBackground(new java.awt.Color(204, 204, 204));
         FoeHP.setForeground(new java.awt.Color(102, 255, 102));
         FoeHP.setMaximum(150);
         FoeHP.setValue(150);
         FoeHP.setFocusable(false);
         getContentPane().add(FoeHP, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 90, 400, 20));
 
-        YourHP.setBackground(new java.awt.Color(102, 255, 102));
+        YourHP.setBackground(new java.awt.Color(204, 204, 204));
         YourHP.setForeground(new java.awt.Color(102, 255, 102));
         YourHP.setMaximum(150);
         YourHP.setValue(150);
@@ -604,7 +604,7 @@ public class Battle extends javax.swing.JFrame {
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+                if ("Windows".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
