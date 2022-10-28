@@ -24,6 +24,26 @@ public class HallOfFame extends javax.swing.JFrame {
     
     public HallOfFame() {
         initComponents();
+        
+        icon = new ImageIcon(System.getProperties().getProperty("user.dir") + "/src/main/resources/Images/chatBox.png");
+        LblChat.setIcon(icon);
+        
+        icon = new ImageIcon(System.getProperties().getProperty("user.dir") + "/src/main/resources/Images/hallOfFame.png");
+        LblBackground.setIcon(icon);
+
+        if(gender.equals("boy")){
+            playerIcon = new ImageIcon(System.getProperties().getProperty("user.dir") + "/src/main/resources/Images/lucasSolid.png");
+        }else{
+            playerIcon = new ImageIcon(System.getProperties().getProperty("user.dir") + "/src/main/resources/Images/dawnSolid.png");
+        }
+        
+        pokemonIcon = new ImageIcon(System.getProperties().getProperty("user.dir") + "/src/main/resources/Images/" + pokemonName + ".png");
+        
+        LblPlayer.setIcon(playerIcon);
+        LblPokemon.setIcon(pokemonIcon);
+        
+        LblText.setText("<html>Congratulations, " + playerName + " and " + pokemonName + " for winning the battle!<br>You are a true Pokémon Master!");
+        
         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
         this.setLocation(dim.width / 2 - this.getSize().width / 2, dim.height / 2 - this.getSize().height / 2);
         
@@ -84,24 +104,7 @@ public class HallOfFame extends javax.swing.JFrame {
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
 
-        icon = new ImageIcon(System.getProperties().getProperty("user.dir") + "/src/main/resources/Images/chatBox.png");
-        LblChat.setIcon(icon);
         
-        icon = new ImageIcon(System.getProperties().getProperty("user.dir") + "/src/main/resources/Images/hallOfFame.png");
-        LblBackground.setIcon(icon);
-
-        if(gender.equals("boy")){
-            playerIcon = new ImageIcon(System.getProperties().getProperty("user.dir") + "/src/main/resources/Images/lucasSolid.png");
-        }else{
-            playerIcon = new ImageIcon(System.getProperties().getProperty("user.dir") + "/src/main/resources/Images/dawnSolid.png");
-        }
-        
-        pokemonIcon = new ImageIcon(System.getProperties().getProperty("user.dir") + "/src/main/resources/Images/" + pokemonName + ".png");
-        
-        LblPlayer.setIcon(playerIcon);
-        LblPokemon.setIcon(pokemonIcon);
-        
-        LblText.setText("<html>Congratulations, " + playerName + " and " + pokemonName + " for winning the battle!<br>You are a true Pokémon Master!");
     }//GEN-LAST:event_formWindowActivated
 
     private void formMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseClicked

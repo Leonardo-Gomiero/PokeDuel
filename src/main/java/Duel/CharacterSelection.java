@@ -5,6 +5,8 @@ import java.awt.Image;
 import java.awt.Toolkit;
 import java.net.URL;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
+import static javax.swing.JOptionPane.showMessageDialog;
 
 
 public class CharacterSelection extends javax.swing.JFrame {
@@ -18,6 +20,13 @@ public class CharacterSelection extends javax.swing.JFrame {
     
     public CharacterSelection() {
         initComponents();
+        
+        LblBackground.setVisible(false);
+        LblRowan.setVisible(false);
+        LblDawn.setVisible(false);
+        LblLucas.setVisible(false);
+        TxtName.setVisible(false);
+        
         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
         this.setLocation(dim.width / 2 - this.getSize().width / 2, dim.height / 2 - this.getSize().height / 2);
 
@@ -170,6 +179,7 @@ public class CharacterSelection extends javax.swing.JFrame {
                 break;
             case -2:
                 TxtName.setVisible(true);
+                TxtName.requestFocus();
                 break;
             case -3:
                 TxtName.setVisible(false);
@@ -192,6 +202,9 @@ public class CharacterSelection extends javax.swing.JFrame {
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
 
+        
+        //JOptionPane.showMessageDialog(null, System.getProperties().getProperty("user.dir"));
+
         icon = new ImageIcon(System.getProperties().getProperty("user.dir") + "/src/main/resources/Images/chatBox.png");
         LblChat.setIcon(icon);
         
@@ -208,11 +221,7 @@ public class CharacterSelection extends javax.swing.JFrame {
         LblBackground.setIcon(icon);
 
         
-        LblBackground.setVisible(false);
-        LblRowan.setVisible(false);
-        LblDawn.setVisible(false);
-        LblLucas.setVisible(false);
-        TxtName.setVisible(false);
+        
     }//GEN-LAST:event_formWindowActivated
 
     private void LblDawnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LblDawnMouseEntered

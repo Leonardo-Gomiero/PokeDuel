@@ -22,10 +22,10 @@ public class Battle extends javax.swing.JFrame {
     Color psychic = new Color(255, 27, 224);
     Color normalText = new Color(204, 204, 204);
     Color white = new Color(255, 255, 255);
-    
+
     Pokemon playerPokemon;
     Pokemon foePokemon;
-    
+
     String trainerName;
     String trainerGender;
 
@@ -41,7 +41,7 @@ public class Battle extends javax.swing.JFrame {
 
     int index = 0;
     int roundCount = 0;
-    
+
     ImageIcon icon;
 
     public Battle() {
@@ -67,12 +67,12 @@ public class Battle extends javax.swing.JFrame {
         LblFoeHP = new javax.swing.JLabel();
         FoeHP = new javax.swing.JProgressBar();
         YourHP = new javax.swing.JProgressBar();
-        PokemonFoe = new javax.swing.JLabel();
-        PokemonChoosed = new javax.swing.JLabel();
         BtnMove1 = new javax.swing.JButton();
         BtnMove2 = new javax.swing.JButton();
         BtnMove3 = new javax.swing.JButton();
         BtnMove4 = new javax.swing.JButton();
+        PokemonChoosed = new javax.swing.JLabel();
+        PokemonFoe = new javax.swing.JLabel();
         Background = new javax.swing.JPanel();
         background = new javax.swing.JLabel();
         LblText = new javax.swing.JLabel();
@@ -92,23 +92,24 @@ public class Battle extends javax.swing.JFrame {
         });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        LblYourName.setFont(new java.awt.Font("Arial", 1, 48)); // NOI18N
+        LblYourName.setFont(new java.awt.Font("Bahnschrift", 1, 48)); // NOI18N
         LblYourName.setForeground(new java.awt.Color(255, 255, 255));
+        LblYourName.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         LblYourName.setText("Giratina");
-        getContentPane().add(LblYourName, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 330, 400, 50));
+        getContentPane().add(LblYourName, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 340, 400, 50));
 
-        LblFoeName.setFont(new java.awt.Font("Arial", 1, 48)); // NOI18N
+        LblFoeName.setFont(new java.awt.Font("Bahnschrift", 1, 48)); // NOI18N
         LblFoeName.setForeground(new java.awt.Color(255, 255, 255));
         LblFoeName.setText("Giratina");
         getContentPane().add(LblFoeName, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 32, 400, 50));
 
-        PlayerHP.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        PlayerHP.setFont(new java.awt.Font("Bahnschrift", 0, 14)); // NOI18N
         PlayerHP.setForeground(new java.awt.Color(0, 0, 0));
         PlayerHP.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         PlayerHP.setText("150/150");
-        getContentPane().add(PlayerHP, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 390, 60, 20));
+        getContentPane().add(PlayerHP, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 400, 60, 20));
 
-        LblFoeHP.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        LblFoeHP.setFont(new java.awt.Font("Bahnschrift", 0, 14)); // NOI18N
         LblFoeHP.setForeground(new java.awt.Color(0, 0, 0));
         LblFoeHP.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         LblFoeHP.setText("150/150");
@@ -125,18 +126,10 @@ public class Battle extends javax.swing.JFrame {
         YourHP.setForeground(new java.awt.Color(102, 255, 102));
         YourHP.setMaximum(150);
         YourHP.setValue(150);
-        getContentPane().add(YourHP, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 390, 400, 20));
-
-        PokemonFoe.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        PokemonFoe.setIcon(new javax.swing.ImageIcon("C:\\Users\\Leonardo\\Documents\\Java\\PokeDuel\\src\\main\\resources\\Images\\Giratina.png")); // NOI18N
-        getContentPane().add(PokemonFoe, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 0, 490, -1));
-
-        PokemonChoosed.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        PokemonChoosed.setIcon(new javax.swing.ImageIcon("C:\\Users\\Leonardo\\Documents\\Java\\PokeDuel\\src\\main\\resources\\Images\\backGiratina.png")); // NOI18N
-        getContentPane().add(PokemonChoosed, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, 500, -1));
+        getContentPane().add(YourHP, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 400, 400, 20));
 
         BtnMove1.setBackground(new java.awt.Color(0, 0, 102));
-        BtnMove1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        BtnMove1.setFont(new java.awt.Font("Bahnschrift", 1, 24)); // NOI18N
         BtnMove1.setForeground(new java.awt.Color(255, 255, 255));
         BtnMove1.setText("Dragon Claw");
         BtnMove1.addActionListener(new java.awt.event.ActionListener() {
@@ -147,7 +140,7 @@ public class Battle extends javax.swing.JFrame {
         getContentPane().add(BtnMove1, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 440, 230, 80));
 
         BtnMove2.setBackground(new java.awt.Color(153, 0, 0));
-        BtnMove2.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        BtnMove2.setFont(new java.awt.Font("Bahnschrift", 1, 24)); // NOI18N
         BtnMove2.setForeground(new java.awt.Color(255, 255, 255));
         BtnMove2.setText("Aura Sphere");
         BtnMove2.addActionListener(new java.awt.event.ActionListener() {
@@ -158,7 +151,7 @@ public class Battle extends javax.swing.JFrame {
         getContentPane().add(BtnMove2, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 440, 230, 80));
 
         BtnMove3.setBackground(new java.awt.Color(51, 0, 204));
-        BtnMove3.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        BtnMove3.setFont(new java.awt.Font("Bahnschrift", 1, 24)); // NOI18N
         BtnMove3.setForeground(new java.awt.Color(255, 255, 255));
         BtnMove3.setText("Shadow Force");
         BtnMove3.addActionListener(new java.awt.event.ActionListener() {
@@ -169,7 +162,7 @@ public class Battle extends javax.swing.JFrame {
         getContentPane().add(BtnMove3, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 540, 230, 80));
 
         BtnMove4.setBackground(new java.awt.Color(153, 51, 0));
-        BtnMove4.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        BtnMove4.setFont(new java.awt.Font("Bahnschrift", 1, 24)); // NOI18N
         BtnMove4.setForeground(new java.awt.Color(255, 255, 255));
         BtnMove4.setText("Earth Power");
         BtnMove4.addActionListener(new java.awt.event.ActionListener() {
@@ -178,6 +171,14 @@ public class Battle extends javax.swing.JFrame {
             }
         });
         getContentPane().add(BtnMove4, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 540, 230, 80));
+
+        PokemonChoosed.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        PokemonChoosed.setIcon(new javax.swing.ImageIcon("C:\\Users\\Leonardo\\Documents\\Java\\PokeDuel\\src\\main\\resources\\Images\\backGiratina.png")); // NOI18N
+        getContentPane().add(PokemonChoosed, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, 680, -1));
+
+        PokemonFoe.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        PokemonFoe.setIcon(new javax.swing.ImageIcon("C:\\Users\\Leonardo\\Documents\\Java\\PokeDuel\\src\\main\\resources\\Images\\Giratina.png")); // NOI18N
+        getContentPane().add(PokemonFoe, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 0, 510, -1));
 
         Background.setForeground(new java.awt.Color(218, 188, 104));
         Background.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -335,11 +336,11 @@ public class Battle extends javax.swing.JFrame {
             }
             System.out.println("You Lose!");
             Connect.registerBattle(trainerName, trainerGender, playerPokemon.getName(), foePokemon.getName(), "Loss", roundCount);
-            
+
             HallOfShame hallOfShame = new HallOfShame();
             hallOfShame.pokemonFoe = foePokemon;
             hallOfShame.setVisible(true);
-            
+
             dispose();
 
         } else if (FoeHP.getValue() == 0) {
@@ -350,13 +351,13 @@ public class Battle extends javax.swing.JFrame {
                 PokemonFoe.setVisible(false);
             }
             Connect.registerBattle(trainerName, trainerGender, playerPokemon.getName(), foePokemon.getName(), "Win", roundCount);
-            
+
             HallOfFame hallOfFame = new HallOfFame();
             hallOfFame.playerName = trainerName;
             hallOfFame.pokemonName = playerPokemon.getName();
             hallOfFame.gender = trainerGender;
             hallOfFame.setVisible(true);
-            
+
             dispose();
         }
     }
@@ -376,11 +377,11 @@ public class Battle extends javax.swing.JFrame {
                 if (playerPokemon.getSpeed() > foePokemon.getSpeed()) {
 
                     roundCount++;
+                    BtnMove4.setEnabled(false);
                     BtnMove1.setEnabled(false);
                     BtnMove2.setEnabled(false);
                     BtnMove3.setEnabled(false);
-                    BtnMove4.setEnabled(false);
-                    
+
                     //Give damage before getting damage:
                     for (int i = 0; i <= actualMove.getPower(); i++) {
 
@@ -421,16 +422,15 @@ public class Battle extends javax.swing.JFrame {
                     BtnMove3.setEnabled(true);
                     BtnMove4.setEnabled(true);
 
-                    
                     LblText.setText("What's your next move?");
                 } else {
 
                     roundCount++;
+                    BtnMove4.setEnabled(false);
                     BtnMove1.setEnabled(false);
                     BtnMove2.setEnabled(false);
                     BtnMove3.setEnabled(false);
-                    BtnMove4.setEnabled(false);
-                    
+
                     //Take damage
                     int yourHP = YourHP.getValue();
                     LblText.setText("The foe's " + foePokemon.getName() + " used " + actualFoeMove + "!");
@@ -470,7 +470,7 @@ public class Battle extends javax.swing.JFrame {
                     BtnMove2.setEnabled(true);
                     BtnMove3.setEnabled(true);
                     BtnMove4.setEnabled(true);
-                    
+
                     LblText.setText("What's your next move?");
                 }
 
@@ -518,7 +518,7 @@ public class Battle extends javax.swing.JFrame {
         //Setting all the icons
         icon = new ImageIcon(System.getProperties().getProperty("user.dir") + "/src/main/resources/Images/chatBox.png");
         LblChat.setIcon(icon);
-        
+
         FoeHP.setForeground(Color.green);
         YourHP.setForeground(Color.green);
 

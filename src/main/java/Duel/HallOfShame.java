@@ -18,6 +18,18 @@ public class HallOfShame extends javax.swing.JFrame {
     
     public HallOfShame() {
         initComponents();
+        
+        icon = new ImageIcon(System.getProperties().getProperty("user.dir") + "/src/main/resources/Images/chatBox.png");
+        LblChat.setIcon(icon);
+        
+        pokemonIcon = new ImageIcon(System.getProperties().getProperty("user.dir") + "/src/main/resources/Gifs/" + pokemonFoe.getName() + ".gif");
+        LblPokemon.setIcon(pokemonIcon);        
+        
+        backgroundIcon = new ImageIcon(System.getProperties().getProperty("user.dir") + "/src/main/resources/Images/scenario" + pokemonFoe.getName() + ".png");
+        LblBackground.setIcon(backgroundIcon);
+
+        LblText.setText("<html>" + pokemonFoe.getName() + " won this time... But don't give up!<br>It's not about winning, it's about fighting!");
+        
         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
         this.setLocation(dim.width / 2 - this.getSize().width / 2, dim.height / 2 - this.getSize().height / 2);
         
@@ -73,16 +85,7 @@ public class HallOfShame extends javax.swing.JFrame {
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
 
-        icon = new ImageIcon(System.getProperties().getProperty("user.dir") + "/src/main/resources/Images/chatBox.png");
-        LblChat.setIcon(icon);
         
-        pokemonIcon = new ImageIcon(System.getProperties().getProperty("user.dir") + "/src/main/resources/Images/" + pokemonFoe.getName() + ".png");
-        LblPokemon.setIcon(pokemonIcon);        
-        
-        backgroundIcon = new ImageIcon(System.getProperties().getProperty("user.dir") + "/src/main/resources/Images/scenario" + pokemonFoe.getName() + ".png");
-        LblBackground.setIcon(backgroundIcon);
-
-        LblText.setText("<html>" + pokemonFoe.getName() + " won this time... But don't give up!<br>It's not about winning, it's about fighting!");
     }//GEN-LAST:event_formWindowActivated
 
     private void formMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseClicked

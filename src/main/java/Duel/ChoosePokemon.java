@@ -18,6 +18,8 @@ public class ChoosePokemon extends javax.swing.JFrame {
     Color flying =  new Color(0,153,153);
     Color normal =  new Color(102,102,102);
     Color electric =  new Color(255,204,0);
+    Color rock = new Color(153, 51, 0);
+    Color psychic = new Color(255, 27, 224);
     Color normalText = new Color(204,204,204);
     Color white =  new Color(255, 255, 255);
     
@@ -27,8 +29,60 @@ public class ChoosePokemon extends javax.swing.JFrame {
     String trainerName;
     String trainerGender;
     
+    Move playerMove1;
+    Move playerMove2;
+    Move playerMove3;
+    Move playerMove4;
+    
+    
     public ChoosePokemon() {
         initComponents();
+        
+        
+        
+        icon = new ImageIcon(System.getProperties().getProperty("user.dir") + "/src/main/resources/Images/ReshiramPokeBall.png");
+        ImgReshiram.setIcon(icon);
+        
+        icon = new ImageIcon(System.getProperties().getProperty("user.dir") + "/src/main/resources/Images/GiratinaPokeBall.png");
+        ImgGiratina.setIcon(icon);
+        
+        icon = new ImageIcon(System.getProperties().getProperty("user.dir") + "/src/main/resources/Images/RayquazaPokeBall.png");
+        ImgRayquaza.setIcon(icon);
+        
+        icon = new ImageIcon(System.getProperties().getProperty("user.dir") + "/src/main/resources/Images/ArceusPokeBall.png");
+        ImgArceus.setIcon(icon);
+        
+        icon = new ImageIcon(System.getProperties().getProperty("user.dir") + "/src/main/resources/Images/ElectivirePokeBall.png");
+        ImgElectivire.setIcon(icon);
+        
+        icon = new ImageIcon(System.getProperties().getProperty("user.dir") + "/src/main/resources/Images/menuBar.png");
+        SelectionBar.setIcon(icon);
+        
+        icon = new ImageIcon(System.getProperties().getProperty("user.dir") + "/src/main/resources/Images/Wallpaper.jpg");
+        LblBackground.setIcon(icon);
+        
+        icon = new ImageIcon(System.getProperties().getProperty("user.dir") + "/src/main/resources/Images/ability.png");
+        LblFormAbility.setIcon(icon);
+        
+        icon = new ImageIcon(System.getProperties().getProperty("user.dir") + "/src/main/resources/Images/Giratina.png");
+        LblPokemonChoosed.setIcon(icon);
+        
+        
+        pokemon = Connect.Pokemon(487);
+        loadStats(pokemon);
+        BtnPlay.setEnabled(true);
+        
+        Type1.setBackground(ghost);
+        Type1.setText("GHOST");
+        
+        Type2.setVisible(true);
+        Type2.setBackground(dragon);
+        Type2.setText("DRAGON");
+        
+        
+        LblPokedex.setText("487");
+        LblName.setText(pokemon.getName());
+        
         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
         this.setLocation(dim.width / 2 - this.getSize().width / 2, dim.height / 2 - this.getSize().height / 2);
         
@@ -63,6 +117,10 @@ public class ChoosePokemon extends javax.swing.JFrame {
     private void initComponents() {
 
         Background = new javax.swing.JPanel();
+        BtnMove1 = new javax.swing.JButton();
+        BtnMove3 = new javax.swing.JButton();
+        BtnMove4 = new javax.swing.JButton();
+        BtnMove2 = new javax.swing.JButton();
         LblFormAbility = new javax.swing.JLabel();
         LblPokedex = new javax.swing.JLabel();
         LblName = new javax.swing.JLabel();
@@ -91,16 +149,60 @@ public class ChoosePokemon extends javax.swing.JFrame {
 
         Background.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        BtnMove1.setBackground(new java.awt.Color(0, 0, 102));
+        BtnMove1.setFont(new java.awt.Font("Bahnschrift", 3, 24)); // NOI18N
+        BtnMove1.setForeground(new java.awt.Color(255, 255, 255));
+        BtnMove1.setText("Dragon Claw");
+        BtnMove1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnMove1ActionPerformed(evt);
+            }
+        });
+        Background.add(BtnMove1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 90, 200, 40));
+
+        BtnMove3.setBackground(new java.awt.Color(51, 0, 204));
+        BtnMove3.setFont(new java.awt.Font("Bahnschrift", 3, 24)); // NOI18N
+        BtnMove3.setForeground(new java.awt.Color(255, 255, 255));
+        BtnMove3.setText("Shadow Force");
+        BtnMove3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnMove3ActionPerformed(evt);
+            }
+        });
+        Background.add(BtnMove3, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 140, 200, 40));
+
+        BtnMove4.setBackground(new java.awt.Color(153, 51, 0));
+        BtnMove4.setFont(new java.awt.Font("Bahnschrift", 3, 24)); // NOI18N
+        BtnMove4.setForeground(new java.awt.Color(255, 255, 255));
+        BtnMove4.setText("Earth Power");
+        BtnMove4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnMove4ActionPerformed(evt);
+            }
+        });
+        Background.add(BtnMove4, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 140, 190, 40));
+
+        BtnMove2.setBackground(new java.awt.Color(153, 0, 0));
+        BtnMove2.setFont(new java.awt.Font("Bahnschrift", 3, 24)); // NOI18N
+        BtnMove2.setForeground(new java.awt.Color(255, 255, 255));
+        BtnMove2.setText("Aura Sphere");
+        BtnMove2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnMove2ActionPerformed(evt);
+            }
+        });
+        Background.add(BtnMove2, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 90, 190, 40));
+
         LblFormAbility.setIcon(new javax.swing.ImageIcon("C:\\Users\\Leonardo\\Documents\\Java\\PokeDuel\\src\\main\\resources\\Images\\ability.png")); // NOI18N
         Background.add(LblFormAbility, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 350, -1, 70));
 
-        LblPokedex.setFont(new java.awt.Font("Segoe UI", 3, 48)); // NOI18N
+        LblPokedex.setFont(new java.awt.Font("Bahnschrift", 3, 48)); // NOI18N
         LblPokedex.setForeground(new java.awt.Color(255, 255, 255));
         LblPokedex.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         LblPokedex.setText("000");
         Background.add(LblPokedex, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 30, 200, -1));
 
-        LblName.setFont(new java.awt.Font("Segoe UI", 3, 48)); // NOI18N
+        LblName.setFont(new java.awt.Font("Bahnschrift", 3, 48)); // NOI18N
         LblName.setForeground(new java.awt.Color(255, 255, 255));
         LblName.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         LblName.setText("Pokémon Name");
@@ -156,7 +258,7 @@ public class ChoosePokemon extends javax.swing.JFrame {
         Background.add(LblPokemonChoosed, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 490, -1));
 
         BtnPlay.setBackground(new java.awt.Color(0, 0, 153));
-        BtnPlay.setFont(new java.awt.Font("Yu Gothic Medium", 3, 18)); // NOI18N
+        BtnPlay.setFont(new java.awt.Font("Bahnschrift", 1, 36)); // NOI18N
         BtnPlay.setForeground(new java.awt.Color(255, 255, 255));
         BtnPlay.setText("LET'S GO");
         BtnPlay.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -178,14 +280,14 @@ public class ChoosePokemon extends javax.swing.JFrame {
         Background.add(SelectionBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 420, 1040, 310));
 
         Type2.setBackground(new java.awt.Color(0, 0, 102));
-        Type2.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        Type2.setFont(new java.awt.Font("Bahnschrift", 1, 30)); // NOI18N
         Type2.setForeground(new java.awt.Color(255, 255, 255));
         Type2.setText("DRAGON");
         Type2.setFocusable(false);
         Background.add(Type2, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 290, 190, 50));
 
         LblAbility.setBackground(new java.awt.Color(51, 51, 51));
-        LblAbility.setFont(new java.awt.Font("Segoe UI", 2, 18)); // NOI18N
+        LblAbility.setFont(new java.awt.Font("Bahnschrift", 2, 18)); // NOI18N
         LblAbility.setForeground(new java.awt.Color(255, 255, 255));
         LblAbility.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         LblAbility.setText("Ability");
@@ -193,13 +295,13 @@ public class ChoosePokemon extends javax.swing.JFrame {
         Background.add(LblAbility, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 360, 330, 40));
 
         Type1.setBackground(new java.awt.Color(255, 204, 0));
-        Type1.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        Type1.setFont(new java.awt.Font("Bahnschrift", 1, 30)); // NOI18N
         Type1.setForeground(new java.awt.Color(255, 255, 255));
         Type1.setText("ELECTRIC");
         Type1.setFocusable(false);
         Background.add(Type1, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 290, 190, 50));
 
-        TableStats.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        TableStats.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
         TableStats.setForeground(new java.awt.Color(0, 0, 0));
         TableStats.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -220,7 +322,7 @@ public class ChoosePokemon extends javax.swing.JFrame {
         TableStats.setFocusable(false);
         jScrollPane1.setViewportView(TableStats);
 
-        Background.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 100, 200, 170));
+        Background.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 90, 170, 140));
 
         LblBackground.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         LblBackground.setIcon(new javax.swing.ImageIcon("C:\\Users\\Leonardo\\Documents\\Java\\PokeDuel\\src\\main\\resources\\Images\\Wallpaper.jpg")); // NOI18N
@@ -245,6 +347,16 @@ public class ChoosePokemon extends javax.swing.JFrame {
         Type2.setBackground(dragon);
         Type2.setText("DRAGON");
         
+        playerMove1 = Connect.Move(pokemon.getMove1());
+        playerMove2 = Connect.Move(pokemon.getMove2());
+        playerMove3 = Connect.Move(pokemon.getMove3());
+        playerMove4 = Connect.Move(pokemon.getMove4());
+        
+        defineMove(playerMove1, 1);
+        defineMove(playerMove2, 2);
+        defineMove(playerMove3, 3);
+        defineMove(playerMove4, 4);
+        
         LblPokedex.setText("643");
         LblName.setText(pokemon.getName());
     }//GEN-LAST:event_ImgReshiramMouseClicked
@@ -263,10 +375,19 @@ public class ChoosePokemon extends javax.swing.JFrame {
         Type1.setBackground(flying);
         Type1.setText("FLYING");
         
-        
         Type2.setVisible(true);
         Type2.setBackground(dragon);
         Type2.setText("DRAGON");
+        
+        playerMove1 = Connect.Move(pokemon.getMove1());
+        playerMove2 = Connect.Move(pokemon.getMove2());
+        playerMove3 = Connect.Move(pokemon.getMove3());
+        playerMove4 = Connect.Move(pokemon.getMove4());
+        
+        defineMove(playerMove1, 1);
+        defineMove(playerMove2, 2);
+        defineMove(playerMove3, 3);
+        defineMove(playerMove4, 4);
         
         LblPokedex.setText("384");
         LblName.setText(pokemon.getName());
@@ -286,6 +407,15 @@ public class ChoosePokemon extends javax.swing.JFrame {
         Type2.setBackground(dragon);
         Type2.setText("DRAGON");
         
+        playerMove1 = Connect.Move(pokemon.getMove1());
+        playerMove2 = Connect.Move(pokemon.getMove2());
+        playerMove3 = Connect.Move(pokemon.getMove3());
+        playerMove4 = Connect.Move(pokemon.getMove4());
+        
+        defineMove(playerMove1, 1);
+        defineMove(playerMove2, 2);
+        defineMove(playerMove3, 3);
+        defineMove(playerMove4, 4);
         
         LblPokedex.setText("487");
         LblName.setText(pokemon.getName());
@@ -300,6 +430,16 @@ public class ChoosePokemon extends javax.swing.JFrame {
         
         Type1.setBackground(normal);
         Type1.setText("NORMAL");
+        
+        playerMove1 = Connect.Move(pokemon.getMove1());
+        playerMove2 = Connect.Move(pokemon.getMove2());
+        playerMove3 = Connect.Move(pokemon.getMove3());
+        playerMove4 = Connect.Move(pokemon.getMove4());
+        
+        defineMove(playerMove1, 1);
+        defineMove(playerMove2, 2);
+        defineMove(playerMove3, 3);
+        defineMove(playerMove4, 4);
         
         Type2.setVisible(false);
         
@@ -319,6 +459,16 @@ public class ChoosePokemon extends javax.swing.JFrame {
         Type1.setForeground(white);
         
         Type2.setVisible(false);
+        
+        playerMove1 = Connect.Move(pokemon.getMove1());
+        playerMove2 = Connect.Move(pokemon.getMove2());
+        playerMove3 = Connect.Move(pokemon.getMove3());
+        playerMove4 = Connect.Move(pokemon.getMove4());
+        
+        defineMove(playerMove1, 1);
+        defineMove(playerMove2, 2);
+        defineMove(playerMove3, 3);
+        defineMove(playerMove4, 4);
         
         LblPokedex.setText("466");
         LblName.setText(pokemon.getName());
@@ -381,50 +531,147 @@ public class ChoosePokemon extends javax.swing.JFrame {
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
         //All labels structures:
 
-        icon = new ImageIcon(System.getProperties().getProperty("user.dir") + "/src/main/resources/Images/ReshiramPokeBall.png");
-        ImgReshiram.setIcon(icon);
         
-        icon = new ImageIcon(System.getProperties().getProperty("user.dir") + "/src/main/resources/Images/GiratinaPokeBall.png");
-        ImgGiratina.setIcon(icon);
-        
-        icon = new ImageIcon(System.getProperties().getProperty("user.dir") + "/src/main/resources/Images/RayquazaPokeBall.png");
-        ImgRayquaza.setIcon(icon);
-        
-        icon = new ImageIcon(System.getProperties().getProperty("user.dir") + "/src/main/resources/Images/ArceusPokeBall.png");
-        ImgArceus.setIcon(icon);
-        
-        icon = new ImageIcon(System.getProperties().getProperty("user.dir") + "/src/main/resources/Images/ElectivirePokeBall.png");
-        ImgElectivire.setIcon(icon);
-        
-        icon = new ImageIcon(System.getProperties().getProperty("user.dir") + "/src/main/resources/Images/menuBar.png");
-        SelectionBar.setIcon(icon);
-        
-        icon = new ImageIcon(System.getProperties().getProperty("user.dir") + "/src/main/resources/Images/Wallpaper.jpg");
-        LblBackground.setIcon(icon);
-        
-        icon = new ImageIcon(System.getProperties().getProperty("user.dir") + "/src/main/resources/Images/ability.png");
-        LblFormAbility.setIcon(icon);
-        
-        icon = new ImageIcon(System.getProperties().getProperty("user.dir") + "/src/main/resources/Images/Giratina.png");
-        LblPokemonChoosed.setIcon(icon);
-        
-        
-        pokemon = Connect.Pokemon(487);
-        loadStats(pokemon);
-        BtnPlay.setEnabled(true);
-        
-        Type1.setBackground(ghost);
-        Type1.setText("GHOST");
-        
-        Type2.setVisible(true);
-        Type2.setBackground(dragon);
-        Type2.setText("DRAGON");
-        
-        
-        LblPokedex.setText("487");
-        LblName.setText(pokemon.getName());
     }//GEN-LAST:event_formWindowActivated
 
+    private void BtnMove1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnMove1ActionPerformed
+        
+
+    }//GEN-LAST:event_BtnMove1ActionPerformed
+
+    private void BtnMove3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnMove3ActionPerformed
+        
+    }//GEN-LAST:event_BtnMove3ActionPerformed
+
+    private void BtnMove4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnMove4ActionPerformed
+        
+    }//GEN-LAST:event_BtnMove4ActionPerformed
+
+    private void BtnMove2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnMove2ActionPerformed
+        
+    }//GEN-LAST:event_BtnMove2ActionPerformed
+
+    public void defineMove(Move move, int index) {
+
+        if (index == 1) {
+            switch (move.getType()) {
+                case "Ghost":
+                    BtnMove1.setBackground(ghost);
+                    break;
+                case "Dragon":
+                    BtnMove1.setBackground(dragon);
+                    break;
+                case "Normal":
+                    BtnMove1.setBackground(normal);
+                    break;
+                case "Flying":
+                    BtnMove1.setBackground(flying);
+                    break;
+                case "Fire":
+                    BtnMove1.setBackground(fire);
+                    break;
+                case "Electric":
+                    BtnMove1.setBackground(electric);
+                    break;
+                case "Rock":
+                    BtnMove1.setBackground(rock);
+                    break;
+                case "Psychic":
+                    BtnMove1.setBackground(psychic);
+                    break;
+            }
+
+            BtnMove1.setText(move.getName());
+        } else if (index == 2) {
+            switch (move.getType()) {
+                case "Ghost":
+                    BtnMove2.setBackground(ghost);
+                    break;
+                case "Dragon":
+                    BtnMove2.setBackground(dragon);
+                    break;
+                case "Normal":
+                    BtnMove2.setBackground(normal);
+                    break;
+                case "Flying":
+                    BtnMove2.setBackground(flying);
+                    break;
+                case "Fire":
+                    BtnMove2.setBackground(fire);
+                    break;
+                case "Electric":
+                    BtnMove2.setBackground(electric);
+                    break;
+                case "Rock":
+                    BtnMove2.setBackground(rock);
+                    break;
+                case "Psychic":
+                    BtnMove2.setBackground(psychic);
+                    break;
+            }
+
+            BtnMove2.setText(move.getName());
+        } else if (index == 3) {
+            switch (move.getType()) {
+                case "Ghost":
+                    BtnMove3.setBackground(ghost);
+                    break;
+                case "Dragon":
+                    BtnMove3.setBackground(dragon);
+                    break;
+                case "Normal":
+                    BtnMove3.setBackground(normal);
+                    break;
+                case "Flying":
+                    BtnMove3.setBackground(flying);
+                    break;
+                case "Fire":
+                    BtnMove3.setBackground(fire);
+                    break;
+                case "Electric":
+                    BtnMove3.setBackground(electric);
+                    break;
+                case "Rock":
+                    BtnMove3.setBackground(rock);
+                    break;
+                case "Psychic":
+                    BtnMove3.setBackground(psychic);
+                    break;
+            }
+
+            BtnMove3.setText(move.getName());
+        } else if (index == 4) {
+            switch (move.getType()) {
+                case "Ghost":
+                    BtnMove4.setBackground(ghost);
+                    break;
+                case "Dragon":
+                    BtnMove4.setBackground(dragon);
+                    break;
+                case "Normal":
+                    BtnMove4.setBackground(normal);
+                    break;
+                case "Flying":
+                    BtnMove4.setBackground(flying);
+                    break;
+                case "Fire":
+                    BtnMove4.setBackground(fire);
+                    break;
+                case "Electric":
+                    BtnMove4.setBackground(electric);
+                    break;
+                case "Rock":
+                    BtnMove4.setBackground(rock);
+                    break;
+                case "Psychic":
+                    BtnMove4.setBackground(psychic);
+                    break;
+            }
+
+            BtnMove4.setText(move.getName());
+        }
+
+    }
     /**
      * @param args the command line arguments
      */
@@ -462,6 +709,10 @@ public class ChoosePokemon extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Background;
+    private javax.swing.JButton BtnMove1;
+    private javax.swing.JButton BtnMove2;
+    private javax.swing.JButton BtnMove3;
+    private javax.swing.JButton BtnMove4;
     private javax.swing.JButton BtnPlay;
     private javax.swing.JLabel ImgArceus;
     private javax.swing.JLabel ImgElectivire;
