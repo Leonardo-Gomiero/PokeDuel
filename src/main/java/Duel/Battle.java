@@ -339,12 +339,11 @@ public class Battle extends javax.swing.JFrame {
             Connect.registerBattle(trainerName, trainerGender, playerPokemon.getName(), foePokemon.getName(), "Loss", roundCount);
 
             //foePokemon.showInfo();
-            
             HallOfShame hallOfShame = new HallOfShame();
             hallOfShame.pokemonFoe = foePokemon;
             hallOfShame.pokemonFoe.showInfo();
             hallOfShame.setVisible(true);
-            
+
             System.out.println("Batalha: " + this.trainerGender);
 
             dispose();
@@ -359,7 +358,6 @@ public class Battle extends javax.swing.JFrame {
             Connect.registerBattle(trainerName, trainerGender, playerPokemon.getName(), foePokemon.getName(), "Win", roundCount);
 
             //playerPokemon.showInfo();
-            
             HallOfFame hallOfFame = new HallOfFame();
             hallOfFame.playerName = trainerName;
             System.out.println(hallOfFame.playerName);
@@ -401,11 +399,12 @@ public class Battle extends javax.swing.JFrame {
                             LblFoeHP.setText((foeHP - i) + "/" + foeHP);
                             Thread.sleep(100);
                         }
+                        if (FoeHP.getValue() <= (foeHP * 0.25)) {
+                            FoeHP.setForeground(Color.red);
+                        }else if(FoeHP.getValue() > (foeHP * 0.25) && FoeHP.getValue() <= (foeHP * 0.5)){
+                            FoeHP.setForeground(Color.orange);
+                        }
                         checkWinner();
-                    }
-
-                    if (FoeHP.getValue() <= (foeHP * 0.3)) {
-                        FoeHP.setForeground(Color.red);
                     }
 
                     //Take damage after giving damage:
@@ -420,12 +419,15 @@ public class Battle extends javax.swing.JFrame {
                             PlayerHP.setText((yourHP - i) + "/" + yourHP);
                             Thread.sleep(100);
                         }
+                        
+                        if (YourHP.getValue() <= (yourHP * 0.25)) {
+                            YourHP.setForeground(Color.red);
+                        }else if(YourHP.getValue() > (yourHP * 0.25) && YourHP.getValue() <= (yourHP * 0.5)){
+                            YourHP.setForeground(Color.orange);
+                        }
                         checkWinner();
                     }
 
-                    if (YourHP.getValue() <= (yourHP * 0.3)) {
-                        YourHP.setForeground(Color.red);
-                    }
                     BtnMove1.setEnabled(true);
                     BtnMove2.setEnabled(true);
                     BtnMove3.setEnabled(true);
@@ -450,13 +452,15 @@ public class Battle extends javax.swing.JFrame {
                         if ((yourHP - i) >= 0) {
                             YourHP.setValue(yourHP - i);
                             PlayerHP.setText((yourHP - i) + "/" + yourHP);
+                            Thread.sleep(100);
                         }
-
-                        Thread.sleep(100);
-                    }
-                    checkWinner();
-                    if (YourHP.getValue() <= (yourHP * 0.3)) {
-                        YourHP.setForeground(Color.red);
+                        
+                        if (YourHP.getValue() <= (yourHP * 0.25)) {
+                            YourHP.setForeground(Color.red);
+                        }else if(YourHP.getValue() > (yourHP * 0.25) && YourHP.getValue() <= (yourHP * 0.5)){
+                            YourHP.setForeground(Color.orange);
+                        }
+                        checkWinner();
                     }
 
                     LblText.setText("Your " + playerPokemon.getName() + " used " + actualMove.getName() + "!");
@@ -464,10 +468,16 @@ public class Battle extends javax.swing.JFrame {
                     for (int i = 0; i <= actualMove.getPower(); i++) {
 
                         System.out.println("Damage given: " + i);
+                        LblText.setText("Your " + playerPokemon.getName() + " used " + actualMove.getName() + "!");
                         if ((foeHP - i) >= 0) {
                             FoeHP.setValue(foeHP - i);
                             LblFoeHP.setText((foeHP - i) + "/" + foeHP);
                             Thread.sleep(100);
+                        }
+                        if (FoeHP.getValue() <= (foeHP * 0.25)) {
+                            FoeHP.setForeground(Color.red);
+                        }else if(FoeHP.getValue() > (foeHP * 0.25) && FoeHP.getValue() <= (foeHP * 0.5)){
+                            FoeHP.setForeground(Color.orange);
                         }
                         checkWinner();
                     }
@@ -486,7 +496,6 @@ public class Battle extends javax.swing.JFrame {
             } catch (InterruptedException ex) {
                 Logger.getLogger(Battle.class.getName()).log(Level.SEVERE, null, ex);
             }
-            
 
         }
 

@@ -55,7 +55,7 @@ public class HallOfShame extends javax.swing.JFrame {
 
         LblPokemon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         LblPokemon.setIcon(new javax.swing.ImageIcon("C:\\Users\\Leonardo\\Documents\\Java\\PokeDuel\\src\\main\\resources\\Images\\Giratina.png")); // NOI18N
-        getContentPane().add(LblPokemon, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 20, 450, 430));
+        getContentPane().add(LblPokemon, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 30, 620, 430));
 
         LblText.setFont(new java.awt.Font("Courier New", 1, 24)); // NOI18N
         LblText.setForeground(new java.awt.Color(0, 0, 0));
